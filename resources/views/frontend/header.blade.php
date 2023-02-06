@@ -1,51 +1,11 @@
+<style>
+   .myitem { }
+</style>
+
 <header>
          <!-- header inner -->
          <div class="header">
-            <div class="header_top d_none1">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-4">
-                        <ul class="conta_icon ">
-                           <li><a href="#"><img src="{{ asset('frontend/images/call.png')}}" alt="#"/>Call us: 0126 - 922 - 0162</a> </li>
-                        </ul>
-                     </div>
-                     <div class="col-md-4">
-                        <ul class="social_icon">
-                           <li> <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>
-                              </a>
-                           </li>
-                           <li> <a href="https://twitter.com/home" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                           <li> <a href="https://www.linkedin.com/" target="_blank"> <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                           <li> <a href="https://www.instagram.com/accounts/login/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i>
-                              </a>
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="se_fonr1">
-                           <form action="#" >
-                              <div class="select-box">
-                                 <label for="select-box1" class="label select-box1"><span class="label-desc">English</span> </label>
-                                 <!-- <select id="select-box1" class="select">
-                                    <option value="Choice 1">English</option>
-                                    <option value="Choice 1">Falkla</option>
-                                    <option value="Choice 2">Germa</option>
-                                    <option value="Choice 3">Neverl</option>
-                                 </select> -->
-
-                                 <select class="select form-select changeLang" id="select-box1">
-                                 <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                                 <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>France</option>
-                                 <option value="es" {{ session()->get('locale') == 'es' ? 'selected' : '' }}>Spanish</option>
-                              </select>
-                              </div>
-                           </form>
-                           <span class="time_o"> Open hour: 8.00 - 18.00</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            
             <div class="header_midil">
                <div class="container">
                   <div class="row d_flex">
@@ -94,13 +54,25 @@
                      </div>
                      <div class="col-md-4">
                         <div class="search">
-                           <form action="/action_page.php">
-                              <input class="form_sea" type="text" placeholder="Search" name="search">
-                              <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
-                           </form>
+                           <div class="dropdown myitem">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 My Account
+                              </button>
+                              @if (auth()->check())
+                                 <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="home">Dashboard</a>
+                                 </div>
+                              @else
+                                 <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="login">Login</a>
+                                    <a class="dropdown-item" href="register">Register</a>
+                                    <a class="dropdown-item" href="forgotpassword">Forgot Password</a>
+                                 </div>
+                              @endif
+                              
+                           </div>
                         </div>
                      </div>
-
 
                   </div>
                </div>
