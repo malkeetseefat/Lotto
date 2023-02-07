@@ -1,43 +1,11 @@
      <!--  footer -->
      <footer>
          <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>INFORMATION </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>MY ACCOUNT </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>ABOUT  </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>CONTACTS  </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <p>© 2020-2022 All Rights Reserved.<a href="#"></a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <p>© 2023 All Rights Reserved.
+               <a href="terms-conditions">Terms & conditions</a>
+               &nbsp; <a href="privacy-policy">Privacy Policy</a>
+               &nbsp; <a download="" href="download-pdf">Download PDF</a>
+            </p>         
          </div>
       </footer>
       <!-- end footer -->
@@ -53,10 +21,7 @@
 
       <script>
          $(document).ready(function() {
-         // if(localStorage.getItem('popState') != 'shown'){
-         //    $("#popup").delay(2000).fadeIn();
-         //    localStorage.setItem('popState','shown')
-         // }
+         
 
          setTimeout(function(){
            

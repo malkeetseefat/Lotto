@@ -1,6 +1,3 @@
-<style>
-   .myitem { }
-</style>
 
 <header>
          <!-- header inner -->
@@ -11,16 +8,16 @@
                   <div class="row d_flex">
                      <div class="col-md-4">
                         <ul class="conta_icon d_none1">
-                           <li><a href="#"><img src="{{ asset('frontend/images/email.png')}}" alt="#"/> romofyicollection@gmail.com</a> </li>
+                           <li><a href="mailto:contact@betorwin.co.in"><img src="{{ asset('frontend/images/email.png')}}" alt="#"/> contact@betorwin.co.in</a> </li>
                         </ul>
                      </div>
                      <div class="col-md-4">
-                        <a class="logo" href="#"><img src="{{ asset('frontend/images/logo.png')}}" alt="#"/></a>
+                        <a class="logo" href="/"><img src="{{ asset('frontend/images/logo.png')}}" alt="#"/></a>
                      </div>
                      <div class="col-md-4">
                         <ul class="right_icon d_none1">
                            <li><a href="{{ url('cart') }}"><img src="{{ asset('frontend/images/shopping.png')}}" alt="#"/></a> </li>
-                           <a href="{{ url('#project') }}" class="order">Order Now</a> 
+                           <a href="{{ url('shopping')}}" class="order">Order Now</a> 
                         </ul>
                      </div>
                   </div>
@@ -29,7 +26,7 @@
             <div class="header_bottom">
                <div class="container">
                   <div class="row">
-                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 mb4">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                            <span class="navbar-toggler-icon"></span>
@@ -37,13 +34,16 @@
                            <div class="collapse navbar-collapse" id="navbarsExample04">
                               <ul class="navbar-nav mr-auto">
                                  <li class="nav-item active">
-                                    <a class="nav-link" href="{{ url('shopping')}}">Home</a>
+                                    <a class="nav-link" href="/">Home</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{url('about-us')}}">About</a>
+                                    <a class="nav-link" href="{{ url('shopping')}}">Products</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="news.html">News</a>
+                                    <a class="nav-link" href="{{url('how-to-play')}}">How to Play</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{url('winners')}}">Winners</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href="{{ url('contact-us')}}">Contact Us</a>
@@ -52,7 +52,7 @@
                            </div>
                         </nav>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-4 col-sm-4 col-lg-4 mt4">
                         <div class="search">
                            <div class="dropdown myitem">
                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,6 +61,7 @@
                               @if (auth()->check())
                                  <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="home">Dashboard</a>
+                                    <a class="dropdown-item" href="support-ticket">Support Ticket</a>
                                  </div>
                               @else
                                  <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
