@@ -1,22 +1,13 @@
 @extends('frontend.master')
 @section('content')
-    <div class="blue_bg">
-        <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Contact Us</h2>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-  
+      
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">
                 <div class="card">
                     
+                    <h2 class="text-center">Contact Us</h2>
+
                     <div class="card-body">
   
                         @if(Session::has('success'))

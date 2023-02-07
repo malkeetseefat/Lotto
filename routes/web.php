@@ -34,7 +34,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::any('shopping', [ContactController::class, 'products'])->name('contact.us.products');
-Route::any('how-to-play', [ContactController::class, 'howtoplay'])->name('contact.us.howtoplay');
+Route::any('how-to-bid', [ContactController::class, 'howtoplay'])->name('contact.us.howtoplay');
 Route::any('winners', [ContactController::class, 'winners'])->name('contact.us.winners');
 Route::any('privacy-policy', [ContactController::class, 'policy'])->name('contact.us.policy');
 Route::any('terms-conditions', [ContactController::class, 'terms'])->name('contact.us.terms');

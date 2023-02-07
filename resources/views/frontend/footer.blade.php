@@ -4,7 +4,7 @@
             <p>© 2023 All Rights Reserved.
                <a href="terms-conditions">Terms & conditions</a>
                &nbsp; <a href="privacy-policy">Privacy Policy</a>
-               &nbsp; <a download="" href="download-pdf">Download PDF</a>
+               <!-- &nbsp; <a download="" href="download-pdf">Download PDF</a> -->
             </p>         
          </div>
       </footer>

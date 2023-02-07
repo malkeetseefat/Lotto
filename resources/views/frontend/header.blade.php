@@ -40,7 +40,7 @@
                                     <a class="nav-link" href="{{ url('shopping')}}">Products</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{url('how-to-play')}}">How to Play</a>
+                                    <a class="nav-link" href="{{url('how-to-bid')}}">How to Bid</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href="{{url('winners')}}">Winners</a>

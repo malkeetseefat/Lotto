@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\order;
+
 
 class ContactController extends Controller
 {
@@ -32,12 +35,20 @@ class ContactController extends Controller
 
     public function winners(Request $request)
     {
-        return view('frontend.winners');    
+        $status = order::where('status','1')->skip(0)->take(5)->get();
+        $getproid = order::where('status','1')->first();
+        if(!empty($getproid)){
+            $getproid = $getproid->product_id;
+        }
+        $checkproduct = Product::where('id',$getproid)->get();
+        return view('frontend.winners', compact('status','checkproduct'));    
     }
 
     public function products(Request $request)
     {
-        return view('frontend.products');    
+        $date = date('Y-m-d');
+        $products = Product::where('end_date', '>=', $date)->get();
+        return view('frontend.products', compact('products'));    
     }
 
     public function policy(Request $request)

@@ -1,89 +1,24 @@
 @extends('frontend.master')
 @section('content')
-    <div class="blue_bg">
-        <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Contact Us</h2>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-  
+      
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">
+
+                <h1 class="text-center mb-4">Check here how you can place any bid and win money from money</h1>
+
                 <div class="card">
-                    
                     <div class="card-body">
-  
-                        @if(Session::has('success'))
-                            <div class="alert alert-success">
-                                {{Session::get('success')}}
-                            </div>
-                        @endif
-                     
-                        <form method="POST" action="{{ route('contact.us.store') }}" id="contactUSForm">
-                            {{ csrf_field() }}
-                              
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <strong>Name:</strong>
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
-                                        @if ($errors->has('name'))
-                                            <span class="text-danger">{{ $errors->first('name') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <strong>Email:</strong>
-                                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
-                                        @if ($errors->has('email'))
-                                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <strong>Phone:</strong>
-                                        <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
-                                        @if ($errors->has('phone'))
-                                            <span class="text-danger">{{ $errors->first('phone') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <strong>Subject:</strong>
-                                        <input type="text" name="subject" class="form-control" placeholder="Subject" value="{{ old('subject') }}">
-                                        @if ($errors->has('subject'))
-                                            <span class="text-danger">{{ $errors->first('subject') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <strong>Message:</strong>
-                                        <textarea name="message" rows="3" class="form-control">{{ old('message') }}</textarea>
-                                        @if ($errors->has('message'))
-                                            <span class="text-danger">{{ $errors->first('message') }}</span>
-                                        @endif
-                                    </div>  
-                                </div>
-                            </div>
-                     
-                            <div class="form-group text-center">
-                                <button class="btn btn-success btn-submit">Send Your Query</button>
-                            </div>
-                        </form>
+                        <h3 class="text-center"> - Create your free account today from click this link <a href="/register"> Free Sign up </a>. </h3>
+                        <h3 class="text-center"> - Click Place Bid button for put your bid on any product and try your luck you can win upto 2 Lakh indian rupees price in one montth. </h3>
+                        <h3 class="text-center"> - You can share your refferral link with anyone and win free points after that you can use to place bid these points. </h3>
+                        <h3 class="text-center"> - Simple way to earn money - Free signup - share refferal link - win free points - place bid - win reward . </h3>
+                        <h3 class="text-center"> - After order your own dashboard is ready where you can see your team. </h3>
+                        <h3 class="text-center"> - You can add your bank details from dashboard. </h3>
+                        <h3 class="text-center"> - You can send tickets for any type of correction. </h3>
+                        <h3 class="text-center"> - If you win then you can receive a notificaton on  your dashboard where you can. </h3>
+                        <h3 class="text-center"> - After you win you need to send request to us for giving you withdrawl . </h3>
+                        <h3 class="text-center"> - 4 points value in rupee is ONE Rupee means 20 points = 5-INR . </h3>
                     </div>
                 </div>
             </div>
