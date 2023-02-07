@@ -164,7 +164,7 @@
       <div class="row">
          <div class="col-md-12">
             <div class="titlepage">
-               <h2>Letest News</h2>
+               <h2>Our Happy Users</h2>
             </div>
          </div>
       </div>
@@ -173,12 +173,12 @@
             <div class="row d_flex">
                <div class="col-md-5">
                   <div class="news_img">
-                     <figure><img src="{{ asset('frontend/images/news_img1.jpg')}}"></figure>
+                     <figure><img src="{{ asset('frontend/images/betorwin-happly-clients-Gujrat.jpg')}}"></figure>
                   </div>
                </div>
                <div class="col-md-7">
                   <div class="news_text">
-                     <h3>Bet on betorwin and try your luck</h3>
+                     <h3>Bet on betorwin.co.in and try your luck</h3>
                      <span>7 Nov 2022</span> 
                      <div class="date_like">
                         <span>889 Like </span><span class="pad_le">400 Comment</span>
@@ -192,7 +192,7 @@
             <div class="row d_flex">
                <div class="col-md-5">
                   <div class="news_img">
-                     <figure><img src="{{ asset('frontend/images/news_img2.jpg')}}"></figure>
+                     <figure><img src="{{ asset('frontend/images/betorwin-happly-clients-UP.jpg')}}"></figure>
                   </div>
                </div>
                <div class="col-md-7">
@@ -211,7 +211,7 @@
             <div class="row d_flex">
                <div class="col-md-5">
                   <div class="news_img">
-                     <figure><img src="{{ asset('frontend/images/news_img3.jpg')}}"></figure>
+                     <figure><img src="{{ asset('frontend/images/betorwin-happly-clients-PB.jpg')}}"></figure>
                   </div>
                </div>
                <div class="col-md-7">

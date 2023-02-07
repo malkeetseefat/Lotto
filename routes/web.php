@@ -36,6 +36,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::any('shopping', [ContactController::class, 'products'])->name('contact.us.products');
 Route::any('how-to-play', [ContactController::class, 'howtoplay'])->name('contact.us.howtoplay');
 Route::any('winners', [ContactController::class, 'winners'])->name('contact.us.winners');
+Route::any('privacy-policy', [ContactController::class, 'policy'])->name('contact.us.policy');
+Route::any('terms-conditions', [ContactController::class, 'terms'])->name('contact.us.terms');
 Route::any('contact', [ContactController::class, 'index'])->name('contact.us.index');
 Route::any('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 Route::get('cart', [ProductsController::class, 'cart']);

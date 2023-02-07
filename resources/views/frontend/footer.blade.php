@@ -50,16 +50,6 @@
             });
       </script>
 
-      <script>
-            $(document).ready(function() {
-               $('html, body').animate({ 
-			         scrollTop: $(".feature-product").offset().top 
-			       }, 2000); 
-            });
-      </script>
-
-
-
       <script type="text/javascript">
          
          var url = "{{ route('changeLang') }}";

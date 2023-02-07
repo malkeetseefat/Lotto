@@ -61,7 +61,6 @@
                               @if (auth()->check())
                                  <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="home">Dashboard</a>
-                                    <a class="dropdown-item" href="support-ticket">Support Ticket</a>
                                  </div>
                               @else
                                  <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">

@@ -39,5 +39,16 @@ class ContactController extends Controller
     {
         return view('frontend.products');    
     }
+
+    public function policy(Request $request)
+    {
+        return view('frontend.policy');    
+    }
+
+    public function terms(Request $request)
+    {
+        return view('frontend.terms');    
+    }
+
     
 }   

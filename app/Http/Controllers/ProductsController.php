@@ -41,7 +41,7 @@ class ProductsController extends Controller
         $data1 = User::where('id', $id)->first()->actual_point;
         $data2 = User::where('id', $id)->first()->wallet_points;
         $count = $data1 + $data2;
-        $status = order::where('status','1')->get();
+        $status = order::where('status','1')->skip(0)->take(5)->get();
         $getproid = order::where('status','1')->first();
         if(!empty($getproid)){
             $getproid = $getproid->product_id;

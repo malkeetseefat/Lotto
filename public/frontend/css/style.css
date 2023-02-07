@@ -8,24 +8,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,800i&display=swap');
 
-/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
- 2) font-family: 'Poppins', sans-serif;
- ----------------------------------------*****/
-
-
-/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
-
-@import url(css/animate.min.css);
-@import url(css/normalize.css);
-@import url(css/icomoon.css);
-@import url(css/font-awesome.min.css);
-@import url(css/meanmenu.css);
-@import url(css/owl.carousel.min.css);
-@import url(css/swiper.min.css);
-@import url(css/slick.css);
-@import url(css/jquery.fancybox.min.css);
-@import url(css/jquery-ui.css);
-@import url(css/nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
@@ -753,7 +735,7 @@ margin: 0 15px 20px 15px;
 }
 
 .news_img figure img {
-     width: 100%;
+     width: 80%;
 }
 
 .news_text h3 {
