@@ -1169,9 +1169,19 @@ p{padding:10px}
 .myproducts h4 {padding: 12px 0;}
 .myproducts a { width: 100%; border: 1px solid #f2c119; padding: 10px 0; font-size: 20px;background: #f2c119; }
 
-.terms {font-weight: 300;
+.terms {
+     font-weight: 300;
      font-size: 15px;
-     line-height: 26px;}
+     line-height: 26px;
+}
+button.btn.btn-primary {
+     background: #f2c119;
+     border-color: #f2c119;
+}
+
+
+
+
 /** end contact section **/
 
 
