@@ -66,7 +66,7 @@
                                  <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="login">Login</a>
                                     <a class="dropdown-item" href="register">Register</a>
-                                    <a class="dropdown-item" href="forgotpassword">Forgot Password</a>
+                                    <a class="dropdown-item" href="/password/reset">Forgot Password</a>
                                  </div>
                               @endif
                               
