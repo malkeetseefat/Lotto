@@ -11,16 +11,7 @@
             </div>
          </div>
       </div>
-      <!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel Contact US Form Example - ItSolutionStuff.com</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
-</head>
-<body>
+  
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">
@@ -98,6 +89,5 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
 @endsection

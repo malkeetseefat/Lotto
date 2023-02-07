@@ -8,11 +8,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Lottery II</title>
+      <title>Bet or Win</title>
       <link rel="icon" href="{{ asset('dist/img/AdminLTELogo.jpg')}}" type="image/x-icon">
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
+      <meta name="keywords" content="how to bet,bet,bet in india,investment,bigwin,winonshare,buy and win,best bet company in india,best bet compnay,bet anywhere">
+      <meta name="description" content="Bet on any product and try your luck you are next billionaire of india.">
+      <meta name="author" content="contact@betorwin.co.in">
       <!-- bootstrap css -->
       <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
       <!-- style css -->

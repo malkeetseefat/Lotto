@@ -33,8 +33,11 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
-Route::get('shopping', [ProductsController::class, 'index']);
+Route::any('shopping', [ContactController::class, 'products'])->name('contact.us.products');
+Route::any('how-to-play', [ContactController::class, 'howtoplay'])->name('contact.us.howtoplay');
+Route::any('winners', [ContactController::class, 'winners'])->name('contact.us.winners');
+Route::any('contact', [ContactController::class, 'index'])->name('contact.us.index');
+Route::any('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 Route::get('cart', [ProductsController::class, 'cart']);
 Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart']);
 Route::patch('update-cart', [ProductsController::class, 'update']);
@@ -56,13 +59,11 @@ Route::get('a-pxz/{total}', [ProductsController::class, 'buy_now']);
 Route::post('order', [ProductsController::class, 'create_order']);
 Route::get('order', [ProductsController::class, 'error_solve']);
 Route::get('about-us', [RegisterController::class, 'about']);
-Route::get('contact-us', [RegisterController::class, 'contact']);
 Route::get('product-category/{data}', [ProductsController::class, 'category']);
 Route::get('search', [ProductsController::class, 'search']);
 Route::get('search-order', [ProductsController::class, 'search_order']);
 Route::get('order-details', [ProductsController::class, 'order_details']);
 Route::get('product/{id}', [ProductsController::class, 'product_check']);
-Route::post('shoppiing', [ProductsController::class, 'filter_product']);
 Route::get('users-details', [ProductsController::class, 'all_users']);
 Route::get('team', [ProductsController::class, 'team']);
 

@@ -46,7 +46,7 @@
                                     <a class="nav-link" href="{{url('winners')}}">Winners</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('contact-us')}}">Contact Us</a>
+                                    <a class="nav-link" href="{{ url('contact')}}">Contact Us</a>
                                  </li>
                               </ul>
                            </div>
