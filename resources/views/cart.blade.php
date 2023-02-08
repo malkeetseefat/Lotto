@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row mb-5">
         <div class="col-10 offset-1 mt-5">
-        <table id="cart" class="table table-hover table-condensed mt-5 mb-5">
+        <table id="cart cartpage" class="table table-hover table-condensed mt-5 mb-5">
             <thead>
             <tr>
                 <th style="width:50%">Product</th>
