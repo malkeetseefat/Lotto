@@ -9,7 +9,7 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>Bet or Win</title>
-      <link rel="icon" href="{{ asset('dist/img/AdminLTELogo.jpg')}}" type="image/x-icon">
+      <link rel="icon" href="{{ asset('frontend/images/mobile-logo.png')}}" type="image/x-icon">
       <meta name="keywords" content="how to bet,bet,bet in india,investment,bigwin,winonshare,buy and win,best bet company in india,best bet compnay,bet anywhere">
       <meta name="description" content="Bet on any product and try your luck you are next billionaire of india.">
       <meta name="author" content="contact@betorwin.co.in">

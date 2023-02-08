@@ -12,7 +12,7 @@
                         </ul>
                      </div>
                      <div class="col-md-4">
-                        <a class="logo" href="/"><img src="{{ asset('frontend/images/logo.png')}}" alt="#"/></a>
+                        <a class="logo" href="{{ url('/') }}"><img src="{{ asset('frontend/images/logo.png')}}" alt="#"/></a>
                      </div>
                      <div class="col-md-4">
                         <ul class="right_icon d_none1">

@@ -55,7 +55,7 @@
       <div class="row">
          <div class="col-lg-12 mt-4">
             <h2>Our Products</h2 >
-            <div class="table-responsive--md">
+            <div class="table-responsive">
                <table class="table custom--table">
                   <thead style="background-color: #37f5f9;">
                      <tr>
