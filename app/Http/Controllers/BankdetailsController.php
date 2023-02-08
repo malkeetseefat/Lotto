@@ -42,8 +42,6 @@ class BankdetailsController extends Controller
          }else{
 
             $input = ($request->all());
-
-            //dd($input);
             // $data = $request->validate([
             //     'bankname' => 'required|min:2|max:150',
             //     'account_no' => 'required|min:2|max:50',
