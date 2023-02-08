@@ -73,6 +73,9 @@ $( "#process" ).click(function() {
   $('#verificationprocess').modal('show');
 });
 
+function showbankModal() {
+        $('#bankdetails').modal('show');
+}
 
 
 </script>

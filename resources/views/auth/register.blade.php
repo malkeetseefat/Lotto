@@ -40,10 +40,39 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="contact" class="col-md-4 col-form-label text-md-end">{{ __('Contact') }}</label>
+                            <label for="contact" class="col-md-4 col-form-label text-md-end">{{ __('Phone no.') }}</label>
 
                             <div class="col-md-6">
                                 <input id="contact" type="contact" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact">
+
+                                @error('contact')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="aadhar_card" class="col-md-4 col-form-label text-md-end">{{ __('Pan Card') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="aadhar_card" type="aadhar_card" class="form-control @error('pan_card') is-invalid @enderror" name="pan_card" value="{{ old('pan_card') }}" required autocomplete="pan_card">
+
+                                @error('pan_card')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="aadhar_card" class="col-md-4 col-form-label text-md-end">{{ __('Aadhar No.') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="aadhar_card" type="aadhar_card" class="form-control @error('aadhar_card') is-invalid @enderror" name="aadhar_card" value="{{ old('aadhar_card') }}" required autocomplete="aadhar_card">
 
                                 @error('contact')
                                     <span class="invalid-feedback" role="alert">
