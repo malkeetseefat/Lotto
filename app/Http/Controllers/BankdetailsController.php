@@ -69,36 +69,19 @@ class BankdetailsController extends Controller
         return view('admin.bankdetails.bank-details');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function get_bankdetails(Request $request)
     {   
         $data = bankdetails::where('user_id',Auth::id())->get();
-        //dd($data);
         return view('admin.bankdetails.bank-detail', compact('data'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\bankdetails  $bankdetails
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(bankdetails $bankdetails)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\bankdetails  $bankdetails
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Request $request)
     {
         $id = $request->id;
@@ -106,26 +89,16 @@ class BankdetailsController extends Controller
         return view('admin.bankdetails.editbankdetails',compact('usersData'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\bankdetails  $bankdetails
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, bankdetails $bankdetails)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\bankdetails  $bankdetails
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(bankdetails $bankdetails)
     {
         //
     }
+    
 }

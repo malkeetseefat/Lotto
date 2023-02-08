@@ -1,59 +1,30 @@
 <?php
-        $data = Auth::id();
-        $checkauth = DB::table('users')->where('id', $data)->first();
-        $admin = $checkauth->role;
-
-        $firebase = DB::select('SELECT * FROM firebase_settings');
+  $data = Auth::id();
+  $checkauth = DB::table('users')->where('id', $data)->first();
+  $admin = $checkauth->role;
+  $firebase = DB::select('SELECT * FROM firebase_settings');
 ?>
-  <!-- Navbar -->
+<?php
+$checkverify = DB::select('SELECT * FROM verification_processes');
+if($checkverify >= 0 ){
+  foreach($checkverify as $values){
+    $twillo = $values->twillo;
+    $firebase = $values->firebase;
+    if($twillo == '1'){
+      $twillo = 'checked';
+    }else{
+      $twillo = '';
+    }
+    if($firebase == '1'){
+      $firebase = 'checked';
+    }else{
+      $firebase = '';
+    }
+  }
+}
+?>
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a title='Home' href="{{ url('home')}}" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i></a>
-      </li>
-      @if($admin == '1')
-        <li class="nav-item d-none d-sm-inline-block">
-          <a title='Product' href="{{ url('products')}}" class="nav-link"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
-        </li>
-      @endif
-      <li class="nav-item d-none d-sm-inline-block">
-        <a title='Order' href="{{ url('orders')}}" class="nav-link"><i class="fa fa-history" aria-hidden="true"></i></a>
-      </li>
-
-      <li class="nav-item d-none d-sm-inline-block">
-        <a title='Team Member' href="{{ url('team')}}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i></a>
-      </li>
-
-      @if($admin == '0')
-      <li class="nav-item d-none d-sm-inline-block">
-        <a title='Bank Detail' href="{{ url('bank-status')}}" class="nav-link"><i class="fas fa-landmark" aria-hidden="true"></i></a>
-      </li>
-      @endif
-
-      @if($admin == '1')
-        <li class="nav-item d-none d-sm-inline-block">
-        <a title='Firebase Settings' href="{{ url('users-details')}}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i></a>
-        </li>
-      @endif
-      
-      @if($admin == '1')
-        <li class="nav-item d-none d-sm-inline-block">
-        <a title='Firebase Settings' href="{{ url('firebase-collection')}}" class="nav-link"><i class="fas fa-landmark" aria-hidden="true"></i></a>
-        </li>
-      @endif
-
-      @if($admin == '1')
-        <li class="nav-item d-none d-sm-inline-block">
-        <a title='Verification Process' href="#" id="process" class="nav-link"><i class="fas fa-spinner" aria-hidden="true"></i></a>
-        </li>
-      @endif
-    </ul> -->
-    <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
@@ -74,8 +45,6 @@
           </form>
         </div>
       </li>
-      
-      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -142,30 +111,25 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li> -->
-
-
       <ul class="nav navbar-nav navbar-right" style="margin-top: 8px;"> 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000;">Menu <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>{{ Auth::user()->name }} </li>
-                <li><a href="{{ url('change-password') }}">Forgot Password</a></li>
+                <li><a href="{{ url('change-password') }}">Change Password</a></li>
                 <li>
-                <a class=" role="button" data-widget="control-sidebar" data-controlsidebar-slide="true" href="{{ route('logout') }}"
+                <a class="" role="button" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
                 </form>
                 </li>
-                
+                <a class="" role="button" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#">
+                  Setting
+                </a>
               </ul>
             </li>
           </ul>
@@ -259,25 +223,23 @@
                <div class="modal-body">
                 <form action="#" method="post">
                   @csrf
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input check" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Twillo</label>
+                  <div class="custom-control custom-switch" style="margin-left: 17px;">
+                  Twillo<input data-id="1" class="toggle-class2 twillo" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $twillo }}> 
                   </div>
 
                   <div class="custom-control custom-switch">
                   </div>
 
                   <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input check" id="customSwitch2">
-                    <label class="custom-control-label" for="customSwitch2">Firebase</label>
+                  Firebase<input data-id="2" class="toggle-class2 firebase" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $firebase }}>
                   </div>
                   
                   <div class="custom-control custom-switch">
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <button type="submit" class="btn btn-outline-success" style="">Submit</button>
-                  </div>
+                  </div> -->
                 </form>
                </div>
             </div>
