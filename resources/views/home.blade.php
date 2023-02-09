@@ -83,7 +83,7 @@
     </section>
 
     <h5 style="text-align: center;">
-    <input style="display: none;" type="text" value="{{ url('registers/'.$finalid) }}" id="myInput" readonly="">
+    <input style="" type="text" value="{{ url('registers/'.$finalid) }}" id="myInput" readonly="">
     <button class="btn btn-primary" onclick="myFunction()">Copy Link</button>
     <a class="btn btn-primary" href="https://api.whatsapp.com/send?text=I+won+10,000+From+betorwin.co.in+You+Must+Try+By+Free+Signup+{{ url('registers/'.$finalid) }}">Share on Whatsapp</a>
     </h5>

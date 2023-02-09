@@ -42,10 +42,8 @@ class HomeController extends Controller
 
         $visitcount = ipadrress::select('IP')->count();
 
-
         $user = User::where('id', Auth::id())->first()->suponser_id;
-        $finalid = Crypt::encrypt($user);
-        //return view('profile',compact('finalid'));
+        $finalid = $user;
 
         return view('home', compact('main','countorder','countuser', 'visitcount', 'admin', 'finalid'));
     }

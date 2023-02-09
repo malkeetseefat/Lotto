@@ -28,7 +28,7 @@ class RegisterController extends Controller
 
     public function sponser_id($id)
     {
-        $data = decrypt($id);
+        $data = $id;
         //$id = Auth::id();
         // $user = User::where('id', $id)->first()->suponser_id;
         return view('registers',compact('data'));
