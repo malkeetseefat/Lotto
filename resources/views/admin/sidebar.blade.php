@@ -53,6 +53,8 @@
      <a title='Firebase Settings' href="{{ url('firebase-collection')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-landmark" aria-hidden="true"></i>  FireBase Setting</a>
      
      <a title='Verification Process' href="#" id="process" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-spinner" aria-hidden="true"></i>  Verification </a>
+     
+     <a title='winning-user' href="{{ url('winning-user')}}" id="process" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-users" aria-hidden="true"></i>  Winning User </a>
 
     @endif 
 
