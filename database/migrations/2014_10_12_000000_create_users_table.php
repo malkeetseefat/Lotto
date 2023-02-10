@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('wallet_points')->nullable();
             $table->string('actual_point')->nullable();
             $table->string('contact')->nullable();
+            $table->string('aadhar_card')->nullable();
+            $table->string('pan_card')->nullable();
             $table->string('rank')->nullable();
             $table->string('role')->nullable();
             $table->string('OTP')->nullable();

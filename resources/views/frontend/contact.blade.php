@@ -1,31 +1,13 @@
 @extends('frontend.master')
 @section('content')
-<div class="blue_bg">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Contact Us</h2>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel Contact US Form Example - ItSolutionStuff.com</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" />
-</head>
-<body>
+      
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">
                 <div class="card">
                     
+                    <h2 class="text-center">Contact Us</h2>
+
                     <div class="card-body">
   
                         @if(Session::has('success'))
@@ -90,7 +72,7 @@
                             </div>
                      
                             <div class="form-group text-center">
-                                <button class="btn btn-success btn-submit">Submit</button>
+                                <button class="btn btn-success btn-submit">Send Your Query</button>
                             </div>
                         </form>
                     </div>
@@ -98,6 +80,32 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <!-- three_box section -->
+<div class="three_box">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_mony.png')}}"></i>
+               <span>Make Money From Money</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_gift.png')}}"></i>
+               <span>Special Gift</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_car.png')}}"></i>
+               <span>Small Investment - Big Rewards</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end three_box section -->
+
 @endsection

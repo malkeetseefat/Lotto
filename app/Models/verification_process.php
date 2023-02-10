@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class verification_process extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'twillo', 'firebase'
+    ];
 }

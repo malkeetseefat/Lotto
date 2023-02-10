@@ -15,9 +15,25 @@ class WinningController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function winning_user()
     {
-        //
+        $count = order::where('status', '1')->get();
+
+
+        // $data = Country::join('state', 'state.country_id', '=', 'country.country_id')
+        //       		->join('city', 'city.state_id', '=', 'state.state_id')
+        //       		->get(['country.country_name', 'state.state_name', 'city.city_name']);
+
+
+        foreach($count as $filter){
+            $productid = $filter->product_id;
+            $userid = $filter->user_id;
+        }
+        
+        $bankdetail = bankdetails::where('user_id', $userid)->get();
+        $product = Product::where('id', $productid)->get();
+        return view("admin.winning-user", compact('count' , 'product', 'bankdetail'));
+
     }
 
     /**
@@ -28,9 +44,7 @@ class WinningController extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
-
         $count = winning::where('user_id',$request->user_id)->count();
-
         if($count > 0){
             return back()->with('error', 'Your Order Details already submitted.');
         }else{

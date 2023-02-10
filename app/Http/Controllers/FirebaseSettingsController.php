@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Twilio\Rest\Client;
 use App\Models\FirebaseSettings;
+use App\Models\verification_process;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -28,12 +29,14 @@ class FirebaseSettingsController extends Controller
         return response()->json(['success'=>'Status change successfully.']);
     }
 
-
     public function verificationprocess(Request  $request)
     {
-        $user = FirebaseSettings::find($request->id);
-        $user->firebase = $request->firebase;
-        $user->save();
+
+        $data = $request->all();
+        verification_process::updateOrCreate(
+            ['id' => 1],
+            $data
+        );                
         return response()->json(['success'=>'Status change successfully.']);
     }
 
@@ -53,7 +56,7 @@ class FirebaseSettingsController extends Controller
     public function sms(Request $request)
     {
         $sid    = "ACf9ae5f8d3a2b77ddf00b6d664b4397ce";
-        $token  = "4c138a389250ba564b068d30b35b36a9";
+        $token  = "1b90fc11b1c5c041efe816c1f117e948";
         $twilio = new Client($sid, $token);
         $otp = rand(123121,787912);
         $message = $twilio->messages

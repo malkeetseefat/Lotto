@@ -95,5 +95,21 @@ NO RECORD FOUND!
                   }
               });
           })
+
+          $('.toggle-class2').change(function() {
+          // $('.check').not(this).prop('checked', false); 
+          var twillo = $('.twillo').prop('checked') == true ? 1 : 0; 
+          var firebase = $('.firebase').prop('checked') == true ? 1 : 0; 
+          var id = '1';
+          $.ajax({
+              type: "GET",
+              dataType: "json",
+              url: '/verificationprocess',
+              data: {'twillo': twillo, 'id': id, 'firebase': firebase},
+              success: function(data){
+                console.log(data.success)
+              }
+          });
+          })
 </script>
 @endsection

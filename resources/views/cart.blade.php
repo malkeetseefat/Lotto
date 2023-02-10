@@ -1,57 +1,90 @@
-@extends('layout')
-@section('title', 'Cart')
+@extends('frontend.master')
 @section('content')
-    <table id="cart" class="table table-hover table-condensed">
-        <thead>
-        <tr>
-            <th style="width:50%">Product</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-            <th style="width:10%">Total Points {{$count}}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php $total = 0 ?>
-        @if(session('cart'))
-            @foreach(session('cart') as $id => $details)
-                <?php $total += $details['price'] * $details['quantity'] ?>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ url('upload/'.$details['photo']) }}" width="100" height="100" class="img-responsive"/></div>
-                            <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['name'] }}</h4>
-                                <h4 class="nomargin" style="visibility: hidden;">{{ $details['id'] }}</h4>
-                                <p></p>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-10 offset-1 mt-5">
+        <table id="cart cartpage" class="table table-hover table-condensed mt-5 mb-5">
+            <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%">Total Points {{$count}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $total = 0 ?>
+            @if(session('cart'))
+                @foreach(session('cart') as $id => $details)
+                    <?php $total += $details['price'] * $details['quantity'] ?>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-3 hidden-xs"><img src="{{ url('upload/'.$details['photo']) }}" width="100" height="100" class="img-responsive"/></div>
+                                <div class="col-sm-9">
+                                    <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                    <h4 class="nomargin" style="visibility: hidden;">{{ $details['id'] }}</h4>
+                                    <p></p>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
-                    <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
-                    </td>
-                    <td data-th="Subtotal" class="text-center">{{ $details['price'] * $details['quantity'] }} Points</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
-                    </td>
-                </tr>
-            @endforeach
-        @endif
-        </tbody>
-        <tfoot>
-        <!-- <tr class="visible-xs">
-            <td class="text-center"><strong>Total ${{ $total }}</strong></td>
-        </tr> -->
-        <tr>
-            <td><a href="{{ url('shopping') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-            <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center"><strong>Total Points: {{ $total }}</strong></td>
-            <td><a href="{{ url('a-pxz') }}/{{ $total }}" class="btn btn-warning">Buy Now <i class="fa fa-angle-right"></i> </a></td>
-        </tr>
-        </tfoot>
-    </table>
+                        </td>
+                        <td data-th="Price">${{ $details['price'] }}</td>
+                        <td data-th="Quantity">
+                            <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                        </td>
+                        <td data-th="Subtotal" class="text-center">{{ $details['price'] * $details['quantity'] }} Points</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
+                            <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+            </tbody>
+            <tfoot>
+            <!-- <tr class="visible-xs">
+                <td class="text-center"><strong>Total ${{ $total }}</strong></td>
+            </tr> -->
+            <tr>
+                <td><a href="{{ url('shopping') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total Points: {{ $total }}</strong></td>
+                <td><a href="{{ url('a-pxz') }}/{{ $total }}" class="btn btn-warning">Buy Now <i class="fa fa-angle-right"></i> </a></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    </div>
+</div>
+
+    <!-- three_box section -->
+    <div class="three_box">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_mony.png')}}"></i>
+               <span>Make Money From Money</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_gift.png')}}"></i>
+               <span>Special Gift</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_car.png')}}"></i>
+               <span>Small Investment - Big Rewards</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end three_box section -->
+
 @endsection
 @section('scripts')
     <script type="text/javascript">
