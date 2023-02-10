@@ -73,21 +73,10 @@ $( "#process" ).click(function() {
   $('#verificationprocess').modal('show');
 });
 
-$('.check').change(function() {
+function showbankModal() {
+        $('#bankdetails').modal('show');
+}
 
-              $('.check').not(this).prop('checked', false); 
-              var status = $(this).prop('checked') == true ? 1 : 0; 
-              var id = '1';
-              $.ajax({
-                  type: "GET",
-                  dataType: "json",
-                  url: '/verificationprocess',
-                  data: {'status': status, 'id': id},
-                  success: function(data){
-                    console.log(data.success)
-                  }
-              });
-          })
 
 </script>
 </body>

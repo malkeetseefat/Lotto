@@ -28,7 +28,7 @@ class RegisterController extends Controller
 
     public function sponser_id($id)
     {
-        $data = decrypt($id);
+        $data = $id;
         //$id = Auth::id();
         // $user = User::where('id', $id)->first()->suponser_id;
         return view('registers',compact('data'));
@@ -38,7 +38,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'contact' => ['required', 'string'],
+            'contact' => ['required', 'string',],
+            'aadhar_card' => ['required', 'string','min:16'],
+            'pan_card' => ['required', 'string','min:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -96,6 +98,8 @@ class RegisterController extends Controller
                 'default_password' => $data['password'],
                 'role' => 0,
                 'contact' => $data['contact'],
+                'aadhar_card' => $data['aadhar_card'],
+                'pan_card' => $data['pan_card'],
             ]);
         }else{
             Mail::to($email)->send(new sendMail($emaildata));
@@ -108,6 +112,8 @@ class RegisterController extends Controller
                 'default_password' => $data['password'],
                 'role' => 0,
                 'contact' => $data['contact'],
+                'aadhar_card' => $data['aadhar_card'],
+                'pan_card' => $data['pan_card'],
             ]);
         }
 

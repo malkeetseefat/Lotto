@@ -71,23 +71,6 @@
       }
    </style>
    <div class="container" style="width: 90%;">
-   <!-- <form action="{{ url('search-order') }}" method="GET" role="search" style="margin-bottom: 20px;">
-      <div class="input-group">
-         <input type="text" class="form-control mr-2" name="term" placeholder="Search Product" id="term" style="margin-top: 5px;">
-         <a href="{{ url('search') }}" class=" mt-1">
-            <span class="input-group-btn">
-                <button class="btn btn-danger" type="button" title="Refresh page">
-                    <span class="fas fa-sync-alt"></span>
-                </button>
-            </span>
-            </a>
-         <span class="input-group-btn mr-5 mt-1">
-         <button class="btn btn-info" type="submit" title="Search Product" style="margin-left: 15px;">
-         <span class="fas fa-search"></span>
-         </button>
-         </span>
-      </div>
-   </form> -->
    <div>
       @if($check == '0')
       @if($winnerstatus == '1' && $winningplaced == '0')
@@ -434,7 +417,7 @@
           var code = $("#verification").val();
           coderesult.confirm(code).then(function (result) {
               var user = result.user;
-              console.log(user);
+              //console.log(user);
               $("#successOtpAuth").text("Mobile Verification Done!");
               $("#successOtpAuth").show();
               $("#earncash").trigger('click'); 
