@@ -7,6 +7,7 @@ use App\Models\ipadrress;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
+use \Crypt;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,10 @@ class HomeController extends Controller
         $admin = $checkauth->role;
 
         $visitcount = ipadrress::select('IP')->count();
-        return view('home', compact('main','countorder','countuser', 'visitcount', 'admin'));
+
+        $user = User::where('id', Auth::id())->first()->suponser_id;
+        $finalid = $user;
+
+        return view('home', compact('main','countorder','countuser', 'visitcount', 'admin', 'finalid'));
     }
 }

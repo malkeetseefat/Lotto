@@ -93,7 +93,7 @@ Route::get('changeStatus', [ProductsController::class,'changeStatus']);
 Route::post('winning-product', [WinningController::class, 'create']);
 Route::post('winning-detail', [WinningController::class, 'store']);
 Route::get('winning-status', [WinningController::class, 'show']);
-
+Route::get('winning-user', [WinningController::class, 'winning_user']);
 //Firebase-Settings
 Route::post('firebase-settings', [FirebaseSettingsController::class, 'create']);
 Route::get('firebase-collection', [FirebaseSettingsController::class, 'show']);

@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'default_password',
         'contact',
+        'aadhar_card',
+        'pan_card',
     ];
 
     protected $hidden = [
