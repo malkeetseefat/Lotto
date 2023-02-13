@@ -19,12 +19,6 @@ class WinningController extends Controller
     {
         $count = order::where('status', '1')->get();
 
-
-        // $data = Country::join('state', 'state.country_id', '=', 'country.country_id')
-        //       		->join('city', 'city.state_id', '=', 'state.state_id')
-        //       		->get(['country.country_name', 'state.state_name', 'city.city_name']);
-
-
         foreach($count as $filter){
             $productid = $filter->product_id;
             $userid = $filter->user_id;
@@ -120,9 +114,9 @@ class WinningController extends Controller
      * @param  \App\Models\winning  $winning
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, winning $winning)
+    public function update_winner(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

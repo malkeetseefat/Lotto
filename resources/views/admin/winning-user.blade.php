@@ -13,16 +13,14 @@
       <th scope="col">Order No.</th>
       <th scope="col">Address</th>
       <th scope="col">Contact</th>
-      <th scope="col">TIcket No.</th>
+      <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   @php
   $i = 1;
   @endphp
-  @foreach($count as $data)
-  @foreach($product as $product)
-  @foreach($bankdetail as $bankdetail)
+  @foreach($count as $data)  
   <tbody>
     <tr>
       <th scope="row">{{$i++}}</th>
@@ -30,11 +28,14 @@
       <td>{{$data->order_no}}</td>
       <td>{{$data->street_address}}, {{$data->city}}<br>{{$data->region}}, {{$data->pin_code}}  <br> {{$data->country}}</td>
       <td>{{$data->contact}}</td>
-      <td>{{$product->ticket_no}}</td>
       <td><a class="btn btn-dark" type="button" class="btn btn-primary" onclick="showbankModal()">View</a></td>
     </tr>
   </tbody>
-  <div class="modal fade" id="bankdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  @endforeach
+</table>
+</div>
+@foreach($bankdetail as $bankdetail)
+<div class="modal fade" id="bankdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
@@ -60,16 +61,36 @@
                               <li><strong>Email Address : </strong>{{$bankdetail->emailaddress}}</li>
                             </ul>
                           </div>
+
+                        <form method="post" action="#" enctype="multipart/form-data">
+                          @csrf
+
+                          <input type="hidden" value='{{$data->id}}' id="id">
+                          <div class="form-group">
+                                <select class="form-control" id="win_status">
+                                  <option>Select Status</option>
+                                  <option>Approved</option>
+                                  <option>Confirmed</option>
+                                  <option>Pending</option>
+                                </select>
+                          </div>
+                          <div class="form-group">
+                              <textarea class="form-control" id="exampleFormControlTextarea3" rows="2" id="subject" placeholder="Enter Subject Here"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <input type="file" class="form-control-file" id="file">
+                          </div>
+
+                          <button type="button" class="btn btn-primary" id="update_status">Submit</button>
+                        </form>
+
                           </div>
                      </div>
                   </div>
                </div>
+                
             </div>
          </div>
   </div>
   @endforeach
-  @endforeach
-  @endforeach
-</table>
-</div>
-@endsection
+  @endsection

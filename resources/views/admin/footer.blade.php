@@ -74,8 +74,25 @@ $( "#process" ).click(function() {
 });
 
 function showbankModal() {
-        $('#bankdetails').modal('show');
+  $('#bankdetails').modal('show');
 }
+
+
+$('#update_status').click(function() {
+    var status = $('#win_status').val();
+    var user_id = $('#id').val();
+    var file = $('#file').val(); 
+    var subject = $('#subject').val();
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: '/update-winner',
+        data: {'status': status, 'user_id': user_id, 'file':file, 'subject':subject},
+        success: function(data){
+          console.log(data.success)
+        }
+    });
+})
 
 
 </script>
