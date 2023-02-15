@@ -8,6 +8,7 @@ use App\Models\order;
 use App\Models\bankdetails;
 use Illuminate\Http\Request;
 
+
 class WinningController extends Controller
 {
     /**
@@ -116,7 +117,31 @@ class WinningController extends Controller
      */
     public function update_winner(Request $request)
     {
-        dd($request->all());
+        $data = $request->all();
+        
+        $id = $request->id;
+        $status = $request->winning_order_status;
+        $subject = $request->subject;
+        $image = $request->photo;
+
+        $imageName = time().'.'.$request->photo->extension();
+        
+        $request->photo->move(public_path('upload'), $imageName);
+
+        $update_status = order::where("id", $id)->limit(1)->update(["winning_order_status" => $status , "subject" => $subject , "photo" => $imageName]);
+
+        if ($update_status) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information saved successfully!'
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'Something went wrong!'
+            ], 400);
+        }
+        
     }
 
     /**

@@ -155,6 +155,7 @@ class ProductsController extends Controller
         $query->price = $request->price;
         $query->category = $request->category;
         $file = $request->photo;
+        
         $query->photo = $file->getClientOriginalName();
 
         if($request->file('photo')){

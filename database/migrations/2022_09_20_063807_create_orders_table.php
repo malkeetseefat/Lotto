@@ -31,6 +31,9 @@ class CreateOrdersTable extends Migration
             $table->string("product_id", 255)->nullable();
             $table->string("contact", 255)->nullable();
             $table->string("status", 255)->nullable();
+            $table->string("winning_order_status", 255)->nullable();
+            $table->string("photo", 255)->nullable();
+            $table->string("subject", 255)->nullable();
             $table->timestamps();
         });
     }

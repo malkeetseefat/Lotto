@@ -55,7 +55,6 @@ Route::post('edit-product', [ProductsController::class, 'edit_post']);
 Route::get('razorpay-payment', [ProductsController::class, 'r_payment']);
 Route::post('payment', [ProductsController::class,'payment'])->name('payment');
 Route::get('profile', [ProductsController::class, 'user_profile']);
-// Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'index'])->name('customer');
 Route::any('registers/{id}', [RegisterController::class, 'sponser_id']);
 Route::get('a-pxz/{total}', [ProductsController::class, 'buy_now']);
 Route::post('order', [ProductsController::class, 'create_order']);
@@ -69,7 +68,6 @@ Route::get('product/{id}', [ProductsController::class, 'product_check']);
 Route::get('users-details', [ProductsController::class, 'all_users']);
 Route::get('team', [ProductsController::class, 'team']);
 
-
 //language test
 Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
@@ -79,7 +77,6 @@ Route::get('lang/change', [LangController::class, 'change'])->name('changeLang')
 Route::get('change-password', [ChangePassword::class,'index']);
 Route::post('/change/password', [ChangePassword::class,'changePassword'])->name('profile.change.password');
 
-
 //add bank details
 Route::get('bank-details', [BankdetailsController::class,'index']);
 Route::post('bank-detail', [BankdetailsController::class,'create']);
@@ -88,13 +85,12 @@ Route::get('bank-status', [BankdetailsController::class,'get_bankdetails']);
 Route::get('update-bank/{id}', [BankdetailsController::class,'edit']);
 Route::get('changeStatus', [ProductsController::class,'changeStatus']);
 
-
 //Winning Process
 Route::post('winning-product', [WinningController::class, 'create']);
 Route::post('winning-detail', [WinningController::class, 'store']);
 Route::get('winning-status', [WinningController::class, 'show']);
 Route::get('winning-user', [WinningController::class, 'winning_user']);
-Route::post('/update-winner', [ProductsController::class,'update_winner']);
+Route::post('/update-winner', [WinningController::class,'update_winner']);
 
 //Firebase-Settings
 Route::post('firebase-settings', [FirebaseSettingsController::class, 'create']);

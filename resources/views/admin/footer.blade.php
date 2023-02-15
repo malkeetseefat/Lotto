@@ -50,11 +50,9 @@
 <script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
 
 <script>
-    $(document).ready(function(){
-          $(".alert").delay(5000).slideUp(100);
-    });
-
-
+$(document).ready(function(){
+      $(".alert").delay(5000).slideUp(100);
+});
 $('ul.nav li.dropdown').hover(function() {
 $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
 }, function() {
@@ -68,33 +66,40 @@ $( "#target" ).click(function() {
 $( "#twillo" ).click(function() {
   $('#twillo-model').modal('show');
 });
-
 $( "#process" ).click(function() {
   $('#verificationprocess').modal('show');
 });
-
-function showbankModal() {
+function showbankModal2() {
   $('#bankdetails').modal('show');
 }
-
-
-$('#update_status').click(function() {
-    var status = $('#win_status').val();
-    var user_id = $('#id').val();
-    var file = $('#file').val(); 
-    var subject = $('#subject').val();
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: '/update-winner',
-        data: {'status': status, 'user_id': user_id, 'file':file, 'subject':subject},
-        success: function(data){
-          console.log(data.success)
-        }
-    });
-})
-
-
+function showorderdetail() {
+  $('#showorderdetail').modal('show');
+}
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
+$('#image-upload').submit(function(e) {
+           e.preventDefault();
+           let formData = new FormData(this);
+           $.ajax({
+              type:'POST',
+              url: '/update-winner',
+               data: formData,
+               contentType: false,
+               processData: false,
+               success: (response) => {
+                 if (response) {
+                   this.reset();
+                   $('#success').show().fadeOut(2000);
+                 }
+               },
+               error: function(response){
+                $('#error').show().fadeOut(2000);
+               }
+           });
+});
 </script>
 </body>
 </html>
