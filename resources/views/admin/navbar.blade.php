@@ -5,6 +5,10 @@
   $firebase = DB::select('SELECT * FROM firebase_settings');
 ?>
 <?php
+
+$twillo = '';
+$firebase = '';
+
 $checkverify = DB::select('SELECT * FROM verification_processes');
 if($checkverify >= 0 ){
   foreach($checkverify as $values){
@@ -22,6 +26,9 @@ if($checkverify >= 0 ){
     }
   }
 }
+
+
+
 ?>
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav ml-auto">
