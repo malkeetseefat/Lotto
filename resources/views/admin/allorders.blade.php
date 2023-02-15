@@ -309,12 +309,43 @@
                      @csrf
                      <input name="_method" type="hidden" value="DELETE">
                      <button type="submit" onclick="return confirm('Are you sure you want to Delete')" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-                  </form>
-               </td>
+                  </form><br>
+                  <?php if(!empty($data->photo)){
+                     echo '<a class="btn btn-dark" type="button" class="btn btn-primary" onclick="showorderdetail()">View</a>';
+                  } ?>
+                  </td>
             </tr>
          </tbody>
          @endforeach
       </table>
+      <div class="modal fade" id="showorderdetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel"></h4>
+               </div>
+               <div class="modal-body">
+               <table class="table table-striped">
+                  <thead>
+                    <tr>
+                     <th scope="col">Status</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Attachment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <td>{{$data->winning_order_status}}</td>
+                    <td>{{$data->subject}}</td>
+                    <td><a target="blank" href="{{ url('upload/'.$data->photo) }}" title="Click to open"><img src = "{{ url('upload/'.$data->photo) }}" width = "200" height = "100"></a></td>
+                    </tr>
+                  </tbody>
+               </table>
+               </div>
+            </div>
+         </div>
+      </div>
       <div class="d-flex justify-content-center">
          {{ $allOrder->links('pagination::bootstrap-4') }}
       </div>

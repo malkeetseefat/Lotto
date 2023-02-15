@@ -24,5 +24,8 @@ class order extends Model
         'amount',
         'contact',
         'status',
+        'winning_order_status',
+        'photo',
+        'subject',
     ];
 }

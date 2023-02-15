@@ -8,6 +8,7 @@ use App\Models\order;
 use App\Models\bankdetails;
 use Illuminate\Http\Request;
 
+
 class WinningController extends Controller
 {
     /**
@@ -18,12 +19,6 @@ class WinningController extends Controller
     public function winning_user()
     {
         $count = order::where('status', '1')->get();
-
-
-        // $data = Country::join('state', 'state.country_id', '=', 'country.country_id')
-        //       		->join('city', 'city.state_id', '=', 'state.state_id')
-        //       		->get(['country.country_name', 'state.state_name', 'city.city_name']);
-
 
         foreach($count as $filter){
             $productid = $filter->product_id;
@@ -120,9 +115,33 @@ class WinningController extends Controller
      * @param  \App\Models\winning  $winning
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, winning $winning)
+    public function update_winner(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $id = $request->id;
+        $status = $request->winning_order_status;
+        $subject = $request->subject;
+        $image = $request->photo;
+
+        $imageName = time().'.'.$request->photo->extension();
+        
+        $request->photo->move(public_path('upload'), $imageName);
+
+        $update_status = order::where("id", $id)->limit(1)->update(["winning_order_status" => $status , "subject" => $subject , "photo" => $imageName]);
+
+        if ($update_status) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information saved successfully!'
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'Something went wrong!'
+            ], 400);
+        }
+        
     }
 
     /**
