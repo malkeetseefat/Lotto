@@ -91,6 +91,7 @@ Route::post('winning-detail', [WinningController::class, 'store']);
 Route::get('winning-status', [WinningController::class, 'show']);
 Route::get('winning-user', [WinningController::class, 'winning_user']);
 Route::post('/update-winner', [WinningController::class,'update_winner']);
+Route::any('/update-winnerstatus', [WinningController::class,'update_winnerstatus']);
 
 //Firebase-Settings
 Route::post('firebase-settings', [FirebaseSettingsController::class, 'create']);

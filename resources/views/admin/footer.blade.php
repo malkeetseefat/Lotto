@@ -71,7 +71,7 @@ $( "#process" ).click(function() {
 });
 function showbankModal2() {
   console.log('Hello');
-  $('#bankdetails').modal('show');
+  $('.winnermodal').modal('show');
 }
 function showorderdetail() {
   $('#showorderdetail').modal('show');
@@ -101,6 +101,7 @@ $('#image-upload').submit(function(e) {
                }
            });
 });
+
 </script>
 </body>
 </html>

@@ -150,8 +150,18 @@ class WinningController extends Controller
      * @param  \App\Models\winning  $winning
      * @return \Illuminate\Http\Response
      */
-    public function destroy(winning $winning)
+    public function update_winnerstatus(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $userData = order::where('id', $data['subjectId'])->get();
+        if ($userData) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information Matched!',
+                'data'    => $userData
+            ], 200);
+        }
+        
     }
 }
