@@ -29,7 +29,7 @@
       <td>{{$data->street_address}}, {{$data->city}}<br>{{$data->region}}, {{$data->pin_code}}  <br> {{$data->country}}</td>
       <td>{{$data->contact}}</td>
       <td><button class="btn btn-dark viewdetails">View</button>
-      <input type="hidden" class="subjectId" value="{{$data->id}}">
+      <input type="hidden" class="subjectId" value="{{$data->user_id}}">
       <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
       </td>
     </tr>
@@ -47,7 +47,7 @@
       </div>
       <div class="modal-body">
           <ul>
-            <li><strong>Bank Name : </strong></li>
+            <li id="bank_name"><strong>Bank Name : </strong></li>
             <li><strong>Account No. : </strong></li>
             <li><strong>Acc. Holder Name : </strong></li>
             <li><strong>Branch Code : </strong></li>
@@ -96,6 +96,7 @@
   </div>
 </div>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(".viewdetails").click(function(){
@@ -110,9 +111,12 @@ $(".viewdetails").click(function(){
           success: (response) => {
             if (response) {
               $('.winnermodal').modal('show');
+              $('#bank_name').text(data.id);
             }
           },
           error: function(response){
+
+            alert('User Bank Details Not Added !');
           
           }
       });

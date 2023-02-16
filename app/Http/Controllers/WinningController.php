@@ -154,13 +154,18 @@ class WinningController extends Controller
     {
         $data = $request->all();
 
-        $userData = order::where('id', $data['subjectId'])->get();
-        if ($userData) {
+        $userData = bankdetails::where('user_id', $data['subjectId'])->count();
+        if ($userData > '0') {
             return response()->json([
                 'status' => 'success', 
                 'message' => 'Information Matched!',
                 'data'    => $userData
             ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'User Bank Details Not Added!'
+            ], 400);
         }
         
     }
