@@ -121,11 +121,11 @@ if($checkverify >= 0 ){
       <ul class="nav navbar-nav navbar-right" style="margin-top: 8px;"> 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000;">Menu <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>{{ Auth::user()->name }} </li>
-                <li><a href="{{ url('change-password') }}">Change Password</a></li>
-                <li>
-                <a class="" role="button" href="{{ route('logout') }}"
+              <ul class="dropdown-menu" style="display: none; left: inherit; padding: 12px; right: 5px;">
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">{{ Auth::user()->name }} </li>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;"><a style="color: #000;" href="{{ url('change-password') }}">Change Password</a></li>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">
+                <a class="" role="button" style="color: #000;" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
@@ -134,9 +134,11 @@ if($checkverify >= 0 ){
                   @csrf
                 </form>
                 </li>
-                <a class="" role="button" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#">
-                  Setting
-                </a>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">
+                  <a class="" role="button" style="color: #000;" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#">
+                    Setting
+                  </a>
+               </li>
               </ul>
             </li>
           </ul>

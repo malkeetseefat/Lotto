@@ -70,6 +70,7 @@ $( "#process" ).click(function() {
   $('#verificationprocess').modal('show');
 });
 function showbankModal2() {
+  console.log('Hello');
   $('#bankdetails').modal('show');
 }
 function showorderdetail() {

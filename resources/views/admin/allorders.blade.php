@@ -72,8 +72,13 @@
    </style>
    <div class="container" style="width: 90%;">
    <div>
+      <?php
+      foreach($allOrder as $data){
+         $datawin = $data->status;
+      }
+      ?>
       @if($check == '0')
-      @if($winnerstatus == '1' && $winningplaced == '0')
+      @if($datawin == '1' && $winningplaced == '0')
       <div style="line-height: 140%; text-align: center; word-wrap: break-word;">
          <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px; color: #2a9d8f;"><strong>Congratulations you have win !</strong></span>
          <p class="btn btn-success" onclick="showModal()">Details</p>
@@ -310,7 +315,7 @@
                      <input name="_method" type="hidden" value="DELETE">
                      <button type="submit" onclick="return confirm('Are you sure you want to Delete')" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                   </form><br>
-                  <?php if(!empty($data->photo)){
+                  <?php if($data->status == '1' && $check == '0' && !empty($data->photo)){
                      echo '<a class="btn btn-dark" type="button" class="btn btn-primary" onclick="showorderdetail()">View</a>';
                   } ?>
                   </td>

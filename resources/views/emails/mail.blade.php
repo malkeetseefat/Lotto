@@ -25,9 +25,9 @@
       <td align="center" style="padding:0;">
         <table role="presentation" style="width:602px;border-radius: 25px !important;border:1px solid #cccccc;border-spacing:0;text-align:left;">
           <tr>
-            <td align="center" style="padding:40px 0 30px 0;">
+            <!-- <td align="center" style="padding:40px 0 30px 0;">
               <img src="https://directinternational.in/assets/image/logo.png" alt="" width="300" style="height:auto;display:block;" />
-            </td>
+            </td> -->
           </tr>
           <tr>
             <td style="padding:36px 30px 42px 30px;">

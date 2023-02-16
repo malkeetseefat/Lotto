@@ -61,21 +61,17 @@ class RegisterController extends Controller
         } else{
             $count = 0;
         }
-
-
         if ($count > '0') {
-
             //Rank Functionality
             $countparent_id = User::where('parent_id', '=', $suponser_id)->count();
             if($countparent_id = '10'){
                 User::where("suponser_id", $data['suponser_id'])->limit(1)->update(["rank" => '1']);
-                $incrementcoins = $checkswallet + 100;
+                $incrementcoins = $checkswallet + 10;
                 $wallet_Update = User::where("suponser_id", $data['suponser_id'])->limit(1)->update(["wallet_points" => $incrementcoins]);       
-
             }
             if($countparent_id = '20'){
                 User::where("suponser_id", $data['suponser_id'])->limit(1)->update(["rank" => '2']);
-                $incrementcoins = $checkswallet + 200;
+                $incrementcoins = $checkswallet + 10;
                 $wallet_Update = User::where("suponser_id", $data['suponser_id'])->limit(1)->update(["wallet_points" => $incrementcoins]);
             }
             //End Rank Functionality
@@ -96,7 +92,7 @@ class RegisterController extends Controller
                 'parent_id' => $data['suponser_id'],
                 'password' => Hash::make($data['password']),
                 'default_password' => $data['password'],
-                'role' => 0,
+                'role' => '0',
                 'contact' => $data['contact'],
                 'aadhar_card' => $data['aadhar_card'],
                 'pan_card' => $data['pan_card'],
@@ -110,7 +106,7 @@ class RegisterController extends Controller
                 'parent_id' => '0',
                 'password' => Hash::make($data['password']),
                 'default_password' => $data['password'],
-                'role' => 0,
+                'role' => '0',
                 'contact' => $data['contact'],
                 'aadhar_card' => $data['aadhar_card'],
                 'pan_card' => $data['pan_card'],

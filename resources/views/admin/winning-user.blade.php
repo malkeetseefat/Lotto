@@ -40,7 +40,8 @@
             <div class="modal-content">
                <div class="modal-header">
                <h6 style=" font-size: 16px; font-weight: 600; ">User Winning Details</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                  </button>
                   <h4 class="modal-title" id="exampleModalLabel"></h4>
                </div>
                <div class="card-body">
