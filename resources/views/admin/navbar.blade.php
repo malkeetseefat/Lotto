@@ -6,17 +6,20 @@
 ?>
 
 <?php
- $checknotify = DB::table('notifications')->where('client_id', Auth::id())->count();
+ $checknotify = DB::table('notifications')->where('status' , '0')->where('client_id', Auth::id())->count();
  
- $checksubject = DB::table('notifications')->where('client_id', Auth::id())->get();
+ $checksubject = DB::table('notifications')->select('*')->where('client_id', Auth::id())->get();
+
 ?>
+
 <?php
 
 $twillo = '';
 $firebase = '';
 
 $checkverify = DB::select('SELECT * FROM verification_processes');
-if($checkverify >= 0 ){
+if($checkverify >= 0 )
+{
   foreach($checkverify as $values){
     $twillo = $values->twillo;
     $firebase = $values->firebase;
@@ -100,9 +103,13 @@ if($checkverify >= 0 ){
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header"><?php if(!empty( $checknotify )){ echo  $checknotify; }?> Notifications</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item" id="notification_modal">
-             <?php if(!empty( $checknotify )){ echo  "<i class='fas fa-envelope mr-2'> $checknotify</i>"; }?> messages
+
+          @foreach($checksubject as $data)
+          <a href="#" class="dropdown-item notification_modal" dataid="{{$data->id}}">
+             <i class='fas fa-envelope mr-2'> {{substr($data->subject, 0, 10)}}.....read more </i>
           </a>
+          @endforeach
+          
           <!-- <div class="dropdown-divider"></div> -->
           <!-- <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
@@ -270,16 +277,11 @@ if($checkverify >= 0 ){
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+         
           <div class="modal-body">
-            <p style="color: red;">
-            <?php  
-             foreach($checksubject as $data){
-              $data;
-             }
-             print_r($data);
-            ?>
-            </p>
+          <p id="subject"></p>
           </div>
+           
         </div>
       </div>
   </div>

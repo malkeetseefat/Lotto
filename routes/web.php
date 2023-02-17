@@ -111,5 +111,6 @@ Route::get('verificationprocess', [FirebaseSettingsController::class,'verificati
 
 ///send-notifications
 Route::post('/send-notifications', [NotificationsController::class,'send_notifications']);
+Route::get('/update-notifiystatus', [NotificationsController::class,'update']);
 
 

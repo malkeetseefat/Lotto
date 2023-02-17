@@ -66,11 +66,6 @@ $( "#target" ).click(function() {
   $('#firebase').modal('show');
 });
 
-$( "#notification_modal" ).click(function() {
-  $('#notification_modals').modal('show');
-});
-
-
 $( "#twillo" ).click(function() {
   $('#twillo-model').modal('show');
 });
@@ -109,6 +104,28 @@ $('#image-upload').submit(function(e) {
                }
            });
 });
+
+$( ".notification_modal" ).click(function() {
+  var id = $(this).attr('dataid');
+  $.ajax({
+        type:'GET',
+        url: '/update-notifiystatus',
+        data: {"id": id},
+        dataType: "json",
+          success: (response) => {
+            if (response) {
+              $('#notification_modals').modal('show');
+              $('#subject').html('<strong>Subject : '+ response.data['subject'] +'</strong>');
+            }
+          },
+          error: (response) => {
+            if (response) {
+              
+            }
+          }
+      });
+});
+
 </script>
 </body>
 </html>

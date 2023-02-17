@@ -34,16 +34,6 @@ class NotificationsController extends Controller
         $query->status = '0';
         $query->save();
 
-        // $user = notifications::updateOrCreate(
-        //     ["client_id" => $request->input('client_id')],
-        //     [
-        //         "admin_id" => $request->input('admin_id'),
-        //         "subject" => $request->input('subject'),
-        //         "status" => '0',
-        //         "dateTime" => date('Y-m-d H:i:s'),
-        //     ]
-        // );
-
         if($query){
             return response()->json([
                 'status' => 'success', 
@@ -63,9 +53,27 @@ class NotificationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function update(Request $request)
     {
-        //
+        $data  = $request->all();
+        $userstatus = notifications::where('id', $data['id'])->first();
+
+        $statusread = notifications::where("id", $data['id'])->limit(1)->update(["status" => '1']);
+
+        if (!empty($userstatus)) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information Matched!',
+                'data'    => $userstatus
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'Details Not Added!'
+            ], 400);
+        }
+
+
     }
 
     /**
@@ -97,11 +105,7 @@ class NotificationsController extends Controller
      * @param  \App\Models\notifications  $notifications
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, notifications $notifications)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *
