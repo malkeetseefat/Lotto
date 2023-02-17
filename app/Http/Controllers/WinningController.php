@@ -24,7 +24,7 @@ class WinningController extends Controller
             $productid = $filter->product_id;
             $userid = $filter->user_id;
         }
-        
+
         $bankdetail = bankdetails::where('user_id', $userid)->get();
         $product = Product::where('id', $productid)->get();
         return view("admin.winning-user", compact('count' , 'product', 'bankdetail'));
@@ -99,28 +99,12 @@ class WinningController extends Controller
         return view("admin.winning-status", compact('checkProduct','amount','submission_type','bankdetails'));
         
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\winning  $winning
-     * @return \Illuminate\Http\Response
-     */
-    
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\winning  $winning
-     * @return \Illuminate\Http\Response
-     */
     public function update_winner(Request $request)
     {
-        $data = $request->all();
-        
+        $data = $request->all();        
         $id = $request->id;
         $status = $request->winning_order_status;
+
         $subject = $request->subject;
         $image = $request->photo;
 
@@ -128,8 +112,8 @@ class WinningController extends Controller
         
         $request->photo->move(public_path('upload'), $imageName);
 
-        $update_status = order::where("id", $id)->limit(1)->update(["winning_order_status" => $status , "subject" => $subject , "photo" => $imageName]);
-
+        $update_status = order::where("user_id", $id)->limit(1)->update(["winning_order_status" => $status , "subject" => $subject , "photo" => $imageName]);
+        
         if ($update_status) {
             return response()->json([
                 'status' => 'success', 

@@ -150,6 +150,7 @@ $(".viewdetails").click(function(){
         dataType: "json",
           success: (response) => {
             if (response) {
+              
               $('.winnermodal').modal('show');
                 $('#bank_name').html('<strong>Bank Name : '+ response.data['bankname'] +'</strong>');
                 $('#account_no').html('<strong>Account No. : '+ response.data['account_no'] +'</strong>');
@@ -160,6 +161,7 @@ $(".viewdetails").click(function(){
                 $('#panno').html('<strong>PAN No. : '+ response.data['panno'] +'</strong>');
                 $('#contact').html('<strong>Contact. : '+ response.data['contact'] +'</strong>');
                 $('#emailaddress').html('<strong>Email Address. : '+ response.data['emailaddress'] +'</strong>');
+                $('#id').val(response.data['user_id']);
             }
           },
           error: (response) => {
