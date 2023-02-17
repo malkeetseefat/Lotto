@@ -4,6 +4,12 @@
   $admin = $checkauth->role;
   $firebase = DB::select('SELECT * FROM firebase_settings');
 ?>
+
+<?php
+ $checknotify = DB::table('notifications')->where('client_id', Auth::id())->count();
+ 
+ $checksubject = DB::table('notifications')->where('client_id', Auth::id())->get();
+?>
 <?php
 
 $twillo = '';
@@ -27,9 +33,8 @@ if($checkverify >= 0 ){
   }
 }
 
-
-
 ?>
+
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -88,29 +93,28 @@ if($checkverify >= 0 ){
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <!-- <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a> -->
+          <span class="badge badge-warning navbar-badge"><?php if(!empty( $checknotify )){ echo  $checknotify; }?></span>
+        </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header"><?php if(!empty( $checknotify )){ echo  $checknotify; }?> Notifications</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+          <a href="#" class="dropdown-item" id="notification_modal">
+             <?php if(!empty( $checknotify )){ echo  "<i class='fas fa-envelope mr-2'> $checknotify</i>"; }?> messages
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
             <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
+          </a> -->
+          <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 new reports
             <span class="float-right text-muted text-sm">2 days</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a> -->
         </div>
       </li>
       <li class="nav-item">
@@ -144,6 +148,7 @@ if($checkverify >= 0 ){
           </ul>
     </ul>
   </nav>
+
 
   <div class="modal fade" id="firebase" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -220,8 +225,6 @@ if($checkverify >= 0 ){
          </div>
   </div>
 
-
-
   <div class="modal fade" id="verificationprocess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
@@ -257,3 +260,26 @@ if($checkverify >= 0 ){
 
 
   
+  
+  <div class="modal fade" id="notification_modals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Notification !</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p style="color: red;">
+            <?php  
+             foreach($checksubject as $data){
+              $data;
+             }
+             print_r($data);
+            ?>
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>

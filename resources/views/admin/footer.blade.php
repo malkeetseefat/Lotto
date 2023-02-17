@@ -1,3 +1,5 @@
+
+
 <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://romofyi.com">Romofyi.com</a>.</strong>
     All rights reserved.
@@ -63,6 +65,12 @@ $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
 $( "#target" ).click(function() {
   $('#firebase').modal('show');
 });
+
+$( "#notification_modal" ).click(function() {
+  $('#notification_modals').modal('show');
+});
+
+
 $( "#twillo" ).click(function() {
   $('#twillo-model').modal('show');
 });
@@ -101,7 +109,6 @@ $('#image-upload').submit(function(e) {
                }
            });
 });
-
 </script>
 </body>
 </html>

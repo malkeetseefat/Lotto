@@ -153,9 +153,9 @@ class WinningController extends Controller
     public function update_winnerstatus(Request $request)
     {
         $data = $request->all();
-
-        $userData = bankdetails::where('user_id', $data['subjectId'])->count();
-        if ($userData > '0') {
+        $id = $data['subjectId'];
+        $userData = bankdetails::where('user_id', $data['subjectId'])->first();
+        if (!empty($userData)) {
             return response()->json([
                 'status' => 'success', 
                 'message' => 'Information Matched!',
@@ -164,9 +164,9 @@ class WinningController extends Controller
         }else{
             return response()->json([
                 'status' => 'error', 
-                'message' => 'User Bank Details Not Added!'
+                'message' => 'User Bank Details Not Added!',
+                'dataid'    => $id
             ], 400);
         }
-        
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\BankdetailsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\WinningController;
 use App\Http\Controllers\FirebaseSettingsController;
+use App\Http\Controllers\NotificationsController;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\order;
@@ -106,3 +107,9 @@ Route::any('/phone', [FirebaseSettingsController::class,'sms']);
 Route::get('/sendverify', [FirebaseSettingsController::class,'sendverify'])->name('sendverify');
 Route::post('/verifyotp', [FirebaseSettingsController::class,'verify'])->name('verifyotp');
 Route::get('verificationprocess', [FirebaseSettingsController::class,'verificationprocess']);
+
+
+///send-notifications
+Route::post('/send-notifications', [NotificationsController::class,'send_notifications']);
+
+

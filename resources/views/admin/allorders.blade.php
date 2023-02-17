@@ -142,32 +142,32 @@
                            <div class="col-12">
                               <div class="row mx-4">
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="first_name" placeholder="First Name" required='' >
+                                    <input class="form-control" name="first_name" placeholder="First Name" required='' >
                                     <input class="order-form-input" name="user_id" type="hidden" value="{{ Auth::id() }}" >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="lastname" placeholder="Last Name" required='' >
+                                    <input class="form-control" name="lastname" placeholder="Last Name" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="email" placeholder="Email Address" required='' >
+                                    <input class="form-control" name="email" placeholder="Email Address" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="street_address" placeholder="Street Address" required='' >
+                                    <input class="form-control" name="street_address" placeholder="Street Address" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="city" placeholder="City" required='' >
+                                    <input class="form-control" name="city" placeholder="City" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="pin_code" placeholder="Pin Code" required='' >
+                                    <input class="form-control" name="pin_code" placeholder="Pin Code" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="country" placeholder="Country" required='' > 
+                                    <input class="form-control" name="country" placeholder="Country" required='' > 
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="contact" placeholder="Contact">
-                                    <input type="hidden" class="order-form-input" name="product_id" value="{{ $winner['order_no']}}">
-                                    <input type="hidden" class="order-form-input" name="product_name" value="{{ $product_name }}">
-                                    <input type="hidden" class="order-form-input" name="product_points" value="{{ $winner['amount']}}">
+                                    <input class="form-control" name="contact" placeholder="Contact">
+                                    <input type="hidden" class="form-control" name="product_id" value="{{ $winner['order_no']}}">
+                                    <input type="hidden" class="form-control" name="product_name" value="{{ $product_name }}">
+                                    <input type="hidden" class="form-control" name="product_points" value="{{ $winner['amount']}}">
                                  </div>
                               </div>
                               <div class="row mt-3 mx-4">
