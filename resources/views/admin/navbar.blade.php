@@ -101,7 +101,7 @@ if($checkverify >= 0 )
           <span class="badge badge-warning navbar-badge"><?php if(!empty( $checknotify )){ echo  $checknotify; }?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"><?php if(!empty( $checknotify )){ echo  $checknotify; }?> Notifications</span>
+          <span class="dropdown-item dropdown-header"><?php if(!empty( $checknotify )){ echo  $checknotify; }else{ echo 'Hooray, no new message here!'; }?></span>
           <div class="dropdown-divider"></div>
 
           @foreach($checksubject as $data)
