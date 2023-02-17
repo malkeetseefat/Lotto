@@ -108,8 +108,9 @@ if($checkverify >= 0 )
           <a href="#" class="dropdown-item notification_modal" dataid="{{$data->id}}">
              <i class='fas fa-envelope mr-2'> {{substr($data->subject, 0, 10)}}.....read more </i>
           </a>
+          <div class="dropdown-divider"></div>
           @endforeach
-          
+          <div class="dropdown-divider"></div>
           <!-- <div class="dropdown-divider"></div> -->
           <!-- <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
