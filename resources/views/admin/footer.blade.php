@@ -115,7 +115,7 @@ $( ".notification_modal" ).click(function() {
           success: (response) => {
             if (response) {
               $('#notification_modals').modal('show');
-              $('#subject').html('<strong>Subject : '+ response.data['subject'] +'</strong>');
+              $('#subject').html('<strong>'+ response.data['subject'] +'</strong>');
             }
           },
           error: (response) => {
