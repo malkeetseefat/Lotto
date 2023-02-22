@@ -4,7 +4,7 @@
 <section class="banner_main">
    <div class="container">
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-8">
             <div class="text-bg text-center" style="">
             
                <h2 class="hero__title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInUp;">

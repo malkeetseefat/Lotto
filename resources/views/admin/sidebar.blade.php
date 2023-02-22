@@ -46,6 +46,8 @@
     
     @if($admin == '1')
 
+    <a title='Send Messages' href="{{ url('bulkmessages')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fa fa-list-alt" aria-hidden="true"></i>  Bulk Messages</a> 
+
      <a title='Product' href="{{ url('products')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fa fa-list-alt" aria-hidden="true"></i>  Product</a> 
      
      <a title='Firebase Settings' href="{{ url('users-details')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-users" aria-hidden="true"></i>  User Details</a>
