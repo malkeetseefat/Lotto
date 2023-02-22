@@ -6,13 +6,26 @@
     <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}"> -->
-    <title>Pay with razorpay</title>
+    <title>Add Points</title>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" /> -->
 </head>
+
+<style>
+nav.navbar.navbar-expand-md.navbar-light.bg-white.shadow-sm {
+    display: none;
+}
+body {
+    background: #333;
+}
+.card.card-default {
+    margin: 10% 0 0 0;
+}
+</style>
+
 <body>
     <div id="app">
         <main class="py-4">
@@ -37,7 +50,10 @@
                         {{ Session::forget('success') }}
                         <div class="card card-default">
                             <div class="card-header">
-                                Pay with Razorpay
+                                Add Points
+
+                                <a class="btn btn-primary" href="/cart"> Back To shop </a>
+
                             </div>
 
                             <div class="card-body text-center">
@@ -45,7 +61,7 @@
                                     <input type="text" name="amount" class="form-control amount" placeholder="Enter Pay Amount">
                                     <input type='hidden' name="email" value="{{$user}}" />
                                 </div>
-                                <button id="rzp-button1" class="btn btn-primary btn-lg">Pay with razorpay</button>
+                                <button id="rzp-button1" class="btn btn-primary btn-lg">Add Money to your wallet</button>
                             </div>
                         </div>
                     </div>

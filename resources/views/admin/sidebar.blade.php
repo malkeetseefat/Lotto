@@ -10,7 +10,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('home') }}" class="brand-link">
       <img src="{{ asset('frontend/images/mobile-logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Dashboard</span>
+      <span class="brand-text font-weight-light">Earn With Shop</span>
     </a>
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -21,7 +21,7 @@
         <div class="info">
           <a href="{{ url('home') }}" class="d-block">{{ Auth::user()->name }}</a> 
           @if(!empty($main))
-          <h6 class="d-block" style="color: #c2c7d0;">Rank : {{$main}}</h6>
+          <!-- <h6 class="d-block" style="color: #c2c7d0;">Rank : {{$main}}</h6> -->
           @endif
           <!-- @if(empty($main))
           <h6 class="d-block" style="color: #c2c7d0;">Rank : No Rank</h6>

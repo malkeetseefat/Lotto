@@ -8,9 +8,8 @@
             <div class="text-bg text-center" style="">
             
                <h2 class="hero__title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInUp;">
-                  Bet on any product and get chance to win reward as money.</h2>
-               <h2 class="hero__title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInUp;"> 
-                  Share your referral link and get free points. 
+                  Buy any product from earnwith.shop and get chance to win reward as money.
+                  Share your referral link and get free points.You can withdrwal points as money direct your bank account. 
                </h2>
                <a class="read_more" href="/register">Register for free</a>
             </div>
@@ -79,7 +78,7 @@
                         <td data-label="Start Date">{{ $product->start_date }}</td>
                         <td data-label="End Date">{{ $product->end_date }}</td>
                         <td data-label="Price">{{ $product->price }}</td>
-                        <td data-label="Action"><a style="color: #ffffff; border: 1px solid;" href="{{ url('add-to-cart/'.$product->id) }}" class="btn btn-sm btn-outline--base">Place Bid</a></td>
+                        <td data-label="Action"><a style="color: #ffffff; border: 1px solid;" href="{{ url('add-to-cart/'.$product->id) }}" class="btn btn-sm btn-outline--base">Place Order</a></td>
                      </tr>
                      @endforeach
                   </tbody>
