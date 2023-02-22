@@ -1,7 +1,7 @@
 
 
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://romofyi.com">Romofyi.com</a>.</strong>
+    <strong>Copyright &copy; 2022-2023 <a href="https://earnwith.shop/cart">earnwith.shop</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       

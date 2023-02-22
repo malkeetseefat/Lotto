@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\notifications;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\bulksend;
 
 class NotificationsController extends Controller
 {
@@ -116,4 +118,26 @@ class NotificationsController extends Controller
     {
         //
     }
+
+
+    public function SendAll()
+    {
+        return view('admin.bulksms');
+        //return view('home', compact('main'));    
+    }
+
+
+    public function Sendbulkmsg(notifications $notifications)
+    {
+        $allemails = notifications::get();
+        $emaildata = array(
+            'msgcontent' => $notifications->msg
+        );  
+        
+        Mail::to('malkeet.seefat@gmail.com')->send(new bulksend($emaildata));
+        
+        return view('admin.bulksms');
+        //return view('home', compact('main'));    
+    }
+
 }

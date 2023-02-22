@@ -21,7 +21,7 @@ class sendMail extends Mailable
     
     public function build()
     {
-        return $this->view('emails.mail')->subject('Register Your Account Lottery');
+        return $this->view('emails.mail')->subject('Register Your Account With Earn with shop');
     }
 
 }
