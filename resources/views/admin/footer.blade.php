@@ -1,3 +1,5 @@
+
+
 <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://romofyi.com">Romofyi.com</a>.</strong>
     All rights reserved.
@@ -63,6 +65,7 @@ $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
 $( "#target" ).click(function() {
   $('#firebase').modal('show');
 });
+
 $( "#twillo" ).click(function() {
   $('#twillo-model').modal('show');
 });
@@ -70,7 +73,8 @@ $( "#process" ).click(function() {
   $('#verificationprocess').modal('show');
 });
 function showbankModal2() {
-  $('#bankdetails').modal('show');
+  console.log('Hello');
+  $('.winnermodal').modal('show');
 }
 function showorderdetail() {
   $('#showorderdetail').modal('show');
@@ -100,6 +104,28 @@ $('#image-upload').submit(function(e) {
                }
            });
 });
+
+$( ".notification_modal" ).click(function() {
+  var id = $(this).attr('dataid');
+  $.ajax({
+        type:'GET',
+        url: '/update-notifiystatus',
+        data: {"id": id},
+        dataType: "json",
+          success: (response) => {
+            if (response) {
+              $('#notification_modals').modal('show');
+              $('#subject').html('<strong>'+ response.data['subject'] +'</strong>');
+            }
+          },
+          error: (response) => {
+            if (response) {
+              
+            }
+          }
+      });
+});
+
 </script>
 </body>
 </html>
