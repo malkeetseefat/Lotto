@@ -326,14 +326,6 @@ class ProductsController extends Controller
             
             //Add Order earn money
 
-            
-
-
-
-
-
-
-
             $query->order_no = '#'.str_pad($latestOrder + 1, 8, "0", STR_PAD_LEFT);
             $data = Auth::id();
             $user = User::where('id', $data)->first()->suponser_id;
@@ -496,9 +488,18 @@ class ProductsController extends Controller
 
     Public function transactions()
     {
-        $transactions = Payment::where('user_id', Auth::id())->get();
-        return view('admin.transactions', compact('transactions'));
+        $checkauth = User::where('id', Auth::id())->first();
+        $role = $checkauth->role;
+
+        if($role == '1'){
+            $transactions = Payment::paginate(5);
+            return view('admin.transactions', compact('transactions'));
+        }else{
+            $transactions = Payment::where('user_id', Auth::id())->get();
+            return view('admin.transactions', compact('transactions'));
+        }
     }
+
 
     public function changeStatus(Request $request)
     {

@@ -56,11 +56,9 @@ class RegisterController extends Controller
  
         $id = User::where('suponser_id', $data['suponser_id'])->first();
 
-        $user_id = $id->id;
-
-         
-
-
+        if(!empty($id)){
+            $user_id = $id->id;
+        }
         if (!empty($data['suponser_id'])) {
             $checkswallet = User::where('suponser_id', $data['suponser_id'])->first()->wallet_points;
             $calculate = $checkswallet + $data['wallet_points'];
@@ -99,7 +97,7 @@ class RegisterController extends Controller
             $query->user_id = $user_id;
             $query->payment_id = 'Refer Points';
             $query->amount = '10';
-            $query->status = 'Refer Points From'.$suponser_id;
+            $query->status = 'Refer Points From'. $suponser_id;
             $query->save();
 
 

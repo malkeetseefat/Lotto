@@ -61,6 +61,8 @@
     <a title='Order' href="{{ url('orders')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fa fa-history" aria-hidden="true"></i>  Order</a>
     
     <a title='Team Member' href="{{ url('team')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-users" aria-hidden="true"></i>  Team Member</a>
+    
+    <a title='Transaction History' href="{{ url('transactions')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-history" aria-hidden="true"></i> Transactions</a>
 
     @if($admin == '0')
         <a title='Bank Detail' href="{{ url('bank-status')}}" class="d-block mb-3" style="margin-top: 5px; padding: 5px 50px; border: 1px solid #4f5962; border-radius: 5px 5px;"><i class="fas fa-landmark" aria-hidden="true"></i>  Bank Detail</a>
