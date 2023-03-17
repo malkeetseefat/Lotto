@@ -490,13 +490,26 @@ class ProductsController extends Controller
     {
         $checkauth = User::where('id', Auth::id())->first();
         $role = $checkauth->role;
+        
+        $totalpoints = chargesSetting::where('id', 1)->value('point_to_cash');
 
         if($role == '1'){
             $transactions = Payment::paginate(5);
-            return view('admin.transactions', compact('transactions'));
+            $total = Payment::select('*')->sum('amount');
+
+            if(!empty($totalpoints)){
+               $points = $totalpoints;
+            }
+            return view('admin.transactions', compact('transactions', 'total', 'points'));
         }else{
             $transactions = Payment::where('user_id', Auth::id())->get();
-            return view('admin.transactions', compact('transactions'));
+            $transactions = Payment::paginate(5);
+            $total = Payment::where('user_id', Auth::id())->sum('amount');
+
+            if(!empty($totalpoints)){
+                $points = $totalpoints;
+             }
+            return view('admin.transactions', compact('transactions', 'total', 'points'));
         }
     }
 

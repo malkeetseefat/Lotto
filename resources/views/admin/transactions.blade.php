@@ -5,6 +5,10 @@
     display: none;
 }
 </style>
+
+<p style=" font-size: 18px; font-weight: 600; padding: 0 0 0 9px; ">Total Amount: {{$total}} </p>
+<p style=" font-size: 18px; font-weight: 600; padding: 0 0 0 9px; ">Total Points: {{ $total  * $points }} </p>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -35,6 +39,10 @@
   @endforeach
 </table>
 
+
+<div class="d-flex justify-content-center">
+    {{ $transactions->links('pagination::bootstrap-4') }}
+</div>
 </div>
 @else
 NO RECORD FOUND!
