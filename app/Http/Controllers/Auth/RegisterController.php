@@ -5,6 +5,7 @@ use Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Payment;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,6 +53,13 @@ class RegisterController extends Controller
         $data['wallet_points']  =  rand(0, 10);
         $data['role']  =  0;
         $suponser_id = $data['suponser_id'];
+ 
+        $id = User::where('suponser_id', $data['suponser_id'])->first();
+
+        $user_id = $id->id;
+
+         
+
 
         if (!empty($data['suponser_id'])) {
             $checkswallet = User::where('suponser_id', $data['suponser_id'])->first()->wallet_points;
@@ -85,6 +93,16 @@ class RegisterController extends Controller
         
         if($count > '0'){
             Mail::to($email)->send(new sendMail($emaildata));
+
+
+            $query = new Payment;
+            $query->user_id = $user_id;
+            $query->payment_id = 'Refer Points';
+            $query->amount = '10';
+            $query->status = 'Refer Points From'.$suponser_id;
+            $query->save();
+
+
             return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],

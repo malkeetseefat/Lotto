@@ -323,6 +323,17 @@ class ProductsController extends Controller
             }else{
                 $latestOrder = $latestOrder->id;
             }
+            
+            //Add Order earn money
+
+            
+
+
+
+
+
+
+
             $query->order_no = '#'.str_pad($latestOrder + 1, 8, "0", STR_PAD_LEFT);
             $data = Auth::id();
             $user = User::where('id', $data)->first()->suponser_id;
@@ -481,6 +492,12 @@ class ProductsController extends Controller
         $users = User::all();
         $user_fields =  DB::table('users')->select('parent_id')->get();
         return view('admin.team-members', compact('checkparentid'));
+    }
+
+    Public function transactions()
+    {
+        $transactions = Payment::where('user_id', Auth::id())->get();
+        return view('admin.transactions', compact('transactions'));
     }
 
     public function changeStatus(Request $request)

@@ -69,6 +69,8 @@ Route::get('product/{id}', [ProductsController::class, 'product_check']);
 Route::get('users-details', [ProductsController::class, 'all_users']);
 Route::get('team', [ProductsController::class, 'team']);
 
+Route::get('transactions', [ProductsController::class, 'transactions']);
+
 //language test
 Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
