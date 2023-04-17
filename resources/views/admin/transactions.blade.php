@@ -38,8 +38,6 @@
   </tbody>
   @endforeach
 </table>
-
-
 <div class="d-flex justify-content-center">
     {{ $transactions->links('pagination::bootstrap-4') }}
 </div>

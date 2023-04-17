@@ -502,13 +502,16 @@ class ProductsController extends Controller
             }
             return view('admin.transactions', compact('transactions', 'total', 'points'));
         }else{
+            // dd(Auth::id());
             $transactions = Payment::where('user_id', Auth::id())->get();
             $transactions = Payment::paginate(5);
             $total = Payment::where('user_id', Auth::id())->sum('amount');
 
+            // dd($transactions);
+
             if(!empty($totalpoints)){
                 $points = $totalpoints;
-             }
+            }
             return view('admin.transactions', compact('transactions', 'total', 'points'));
         }
     }
