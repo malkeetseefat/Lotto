@@ -75,7 +75,6 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
-
     public function deleteorder(Request $request)
     {
 
@@ -155,6 +154,7 @@ class ProductsController extends Controller
         $query->price = $request->price;
         $query->category = $request->category;
         $file = $request->photo;
+        
         $query->photo = $file->getClientOriginalName();
 
         if($request->file('photo')){
@@ -486,11 +486,9 @@ class ProductsController extends Controller
     public function changeStatus(Request $request)
     {
         $user = order::find($request->user_id);
-        //email address
         $getemail = $user->user_id;
         $getemail1 = User::where('id', $getemail)->first();
         $getemail = $getemail1->email;
-        // user name
         $name = $getemail1->name;
         
         //ticket no
@@ -498,8 +496,8 @@ class ProductsController extends Controller
         $ticket_no1 = Product::where('id', $ticket_no)->first();
         $ticket_no = $ticket_no1->ticket_no;
         $emaildata = array(
-            'ticket_no' => $ticket_no,
-            'name'     => $name,
+            'ticket_no'    => $ticket_no,
+            'name'         => $name,
             'product_name' => $ticket_no1->name
         );         
         $user->status = $request->status;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lottery | Dashboard</title>
+  <title>Earnwithshop | Dashboard</title>
   <link rel="icon" href="{{ asset('dist/img/AdminLTELogo.jpg')}}" type="image/x-icon">
 
   <!-- Google Font: Source Sans Pro -->

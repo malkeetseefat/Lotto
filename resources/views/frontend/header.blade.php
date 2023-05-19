@@ -8,7 +8,7 @@
                   <div class="row d_flex">
                      <div class="col-md-4">
                         <ul class="conta_icon d_none1">
-                           <li><a href="mailto:contact@betorwin.co.in"><img src="{{ asset('frontend/images/email.png')}}" alt="#"/> contact@betorwin.co.in</a> </li>
+                           <li><a href="mailto:contact@betorwin.co.in"><img src="{{ asset('frontend/images/email.png')}}" alt="#"/> contact@earnwith.shop</a> </li>
                         </ul>
                      </div>
                      <div class="col-md-4">
@@ -40,7 +40,7 @@
                                     <a class="nav-link" href="{{ url('shopping')}}">Products</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{url('how-to-bid')}}">How to Bid</a>
+                                    <a class="nav-link" href="{{url('how-to-bid')}}">How to Earn</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href="{{url('winners')}}">Winners</a>

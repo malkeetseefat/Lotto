@@ -4,9 +4,22 @@
   $admin = $checkauth->role;
   $firebase = DB::select('SELECT * FROM firebase_settings');
 ?>
+
 <?php
+ $checknotify = DB::table('notifications')->where('status' , '0')->where('client_id', Auth::id())->count();
+ 
+ $checksubject = DB::table('notifications')->select('*')->where('client_id', Auth::id())->get();
+
+?>
+
+<?php
+
+$twillo = '';
+$firebase = '';
+
 $checkverify = DB::select('SELECT * FROM verification_processes');
-if($checkverify >= 0 ){
+if($checkverify >= 0 )
+{
   foreach($checkverify as $values){
     $twillo = $values->twillo;
     $firebase = $values->firebase;
@@ -22,7 +35,9 @@ if($checkverify >= 0 ){
     }
   }
 }
+
 ?>
+
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -81,29 +96,33 @@ if($checkverify >= 0 ){
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <!-- <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a> -->
+          <span class="badge badge-warning navbar-badge"><?php if(!empty( $checknotify )){ echo  $checknotify; }?></span>
+        </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header"><?php if(!empty( $checknotify )){ echo  $checknotify; }else{ echo 'Hooray, no new message here!'; }?></span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+
+          @foreach($checksubject as $data)
+          <a href="#" class="dropdown-item notification_modal" dataid="{{$data->id}}">
+             <i class='fas fa-envelope mr-2'> {{substr($data->subject, 0, 10)}}.....read more </i>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          @endforeach
+          <div class="dropdown-divider"></div>
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
             <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
+          </a> -->
+          <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 new reports
             <span class="float-right text-muted text-sm">2 days</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a> -->
         </div>
       </li>
       <li class="nav-item">
@@ -114,11 +133,11 @@ if($checkverify >= 0 ){
       <ul class="nav navbar-nav navbar-right" style="margin-top: 8px;"> 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000;">Menu <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li>{{ Auth::user()->name }} </li>
-                <li><a href="{{ url('change-password') }}">Change Password</a></li>
-                <li>
-                <a class="" role="button" href="{{ route('logout') }}"
+              <ul class="dropdown-menu" style="display: none; left: inherit; padding: 12px; right: 5px;">
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">{{ Auth::user()->name }} </li>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;"><a style="color: #000;" href="{{ url('change-password') }}">Change Password</a></li>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">
+                <a class="" role="button" style="color: #000;" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
@@ -127,14 +146,17 @@ if($checkverify >= 0 ){
                   @csrf
                 </form>
                 </li>
-                <a class="" role="button" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#">
-                  Setting
-                </a>
+                <li style="border: 1px solid #00000024; border-radius: 5px; padding: 3px;">
+                  <a class="" role="button" style="color: #000;" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#">
+                    Setting
+                  </a>
+               </li>
               </ul>
             </li>
           </ul>
     </ul>
   </nav>
+
 
   <div class="modal fade" id="firebase" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -211,8 +233,6 @@ if($checkverify >= 0 ){
          </div>
   </div>
 
-
-
   <div class="modal fade" id="verificationprocess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
@@ -248,3 +268,21 @@ if($checkverify >= 0 ){
 
 
   
+  
+  <div class="modal fade" id="notification_modals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Notification !</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+         
+          <div class="modal-body">
+          <p id="subject"></p>
+          </div>
+           
+        </div>
+      </div>
+  </div>

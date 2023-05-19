@@ -1,12 +1,10 @@
-@extends('layouts.app')
+@extends('frontend.master')
 
 @section('content')
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mt-5 mb-5">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -88,4 +86,32 @@
         </div>
     </div>
 </div>
+<!-- three_box section -->
+<div class="three_box">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_mony.png')}}"></i>
+               <span>Make Money From Money</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_gift.png')}}"></i>
+               <span>Special Gift</span>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="gift_box">
+               <i><img src="{{ asset('frontend/images/icon_car.png')}}"></i>
+               <span>Small Investment - Big Rewards</span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end three_box section -->
+
 @endsection
+

@@ -5,18 +5,18 @@
         <div class="row mt-5 mb-5">
             <div class="col-10 offset-1 mt-5">
 
-                <h1 class="text-center mb-4">Check here how you can place any bid and win money from money</h1>
+                <h1 class="text-center mb-4">Check here how you can place any Order and earn money.</h1>
 
                 <div class="card">
                     <div class="card-body">
                         <h3 class="text-center"> - Create your free account today from click this link <a href="/register"> Free Sign up </a>. </h3>
-                        <h3 class="text-center"> - Click Place Bid button for put your bid on any product and try your luck you can win upto 2 Lakh indian rupees price in one montth. </h3>
-                        <h3 class="text-center"> - You can share your refferral link with anyone and win free points after that you can use to place bid these points. </h3>
-                        <h3 class="text-center"> - Simple way to earn money - Free signup - share refferal link - win free points - place bid - win reward . </h3>
+                        <h3 class="text-center"> - Click Place Order button for create order on any product and try your luck you can win upto 2 Lakh indian rupees price in one montth. </h3>
+                        <h3 class="text-center"> - You can share your refferral link with anyone and win free points after that you can use to place Order these points. </h3>
+                        <h3 class="text-center"> - Simple way to earn money - Free signup - share refferal link - win free points - place Order - win reward . </h3>
                         <h3 class="text-center"> - After order your own dashboard is ready where you can see your team. </h3>
                         <h3 class="text-center"> - You can add your bank details from dashboard. </h3>
                         <h3 class="text-center"> - You can send tickets for any type of correction. </h3>
-                        <h3 class="text-center"> - If you win then you can receive a notificaton on  your dashboard where you can. </h3>
+                        <h3 class="text-center"> - If you win then you can receive a notificaton on your dashboard where you can. </h3>
                         <h3 class="text-center"> - After you win you need to send request to us for giving you withdrawl . </h3>
                         <h3 class="text-center"> - 4 points value in rupee is ONE Rupee means 20 points = 5-INR . </h3>
                     </div>

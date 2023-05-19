@@ -8,6 +8,7 @@ use App\Models\order;
 use App\Models\bankdetails;
 use Illuminate\Http\Request;
 
+
 class WinningController extends Controller
 {
     /**
@@ -19,17 +20,11 @@ class WinningController extends Controller
     {
         $count = order::where('status', '1')->get();
 
-
-        // $data = Country::join('state', 'state.country_id', '=', 'country.country_id')
-        //       		->join('city', 'city.state_id', '=', 'state.state_id')
-        //       		->get(['country.country_name', 'state.state_name', 'city.city_name']);
-
-
         foreach($count as $filter){
             $productid = $filter->product_id;
             $userid = $filter->user_id;
         }
-        
+
         $bankdetail = bankdetails::where('user_id', $userid)->get();
         $product = Product::where('id', $productid)->get();
         return view("admin.winning-user", compact('count' , 'product', 'bankdetail'));
@@ -104,25 +99,33 @@ class WinningController extends Controller
         return view("admin.winning-status", compact('checkProduct','amount','submission_type','bankdetails'));
         
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\winning  $winning
-     * @return \Illuminate\Http\Response
-     */
-    
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\winning  $winning
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, winning $winning)
+    public function update_winner(Request $request)
     {
-        //
+        $data = $request->all();        
+        $id = $request->id;
+        $status = $request->winning_order_status;
+
+        $subject = $request->subject;
+        $image = $request->photo;
+
+        $imageName = time().'.'.$request->photo->extension();
+        
+        $request->photo->move(public_path('upload'), $imageName);
+
+        $update_status = order::where("user_id", $id)->limit(1)->update(["winning_order_status" => $status , "subject" => $subject , "photo" => $imageName]);
+        
+        if ($update_status) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information saved successfully!'
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'Something went wrong!'
+            ], 400);
+        }
+        
     }
 
     /**
@@ -131,8 +134,23 @@ class WinningController extends Controller
      * @param  \App\Models\winning  $winning
      * @return \Illuminate\Http\Response
      */
-    public function destroy(winning $winning)
+    public function update_winnerstatus(Request $request)
     {
-        //
+        $data = $request->all();
+        $id = $data['subjectId'];
+        $userData = bankdetails::where('user_id', $data['subjectId'])->first();
+        if (!empty($userData)) {
+            return response()->json([
+                'status' => 'success', 
+                'message' => 'Information Matched!',
+                'data'    => $userData
+            ], 200);
+        }else{
+            return response()->json([
+                'status' => 'error', 
+                'message' => 'User Bank Details Not Added!',
+                'dataid'    => $id
+            ], 400);
+        }
     }
 }

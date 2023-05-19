@@ -13,7 +13,7 @@
                                     <img src="{{ url('upload/'.$statuswinner->photo) }}" alt="image" style="height:250px;">
                                     &nbsp;<h5 class="name" style="margin-top: 11px;">{{ $statuswinner['name'] }}</h5>
                                 @endforeach
-                                <h4> Happy Custmer -- {{ $statuswinnern['first_name'] }} {{ $statuswinnern['last_name'] }} </h4>
+                                <h4> Happy Customer -- {{ $statuswinnern['first_name'] }} {{ $statuswinnern['last_name'] }} </h4>
                             </div>
                         @endforeach
                     </div>

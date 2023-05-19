@@ -72,8 +72,13 @@
    </style>
    <div class="container" style="width: 90%;">
    <div>
+      <?php
+      foreach($allOrder as $data){
+         $datawin = $data->status;
+      }
+      ?>
       @if($check == '0')
-      @if($winnerstatus == '1' && $winningplaced == '0')
+      @if($datawin == '1' && $winningplaced == '0')
       <div style="line-height: 140%; text-align: center; word-wrap: break-word;">
          <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px; color: #2a9d8f;"><strong>Congratulations you have win !</strong></span>
          <p class="btn btn-success" onclick="showModal()">Details</p>
@@ -137,32 +142,32 @@
                            <div class="col-12">
                               <div class="row mx-4">
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="first_name" placeholder="First Name" required='' >
+                                    <input class="form-control" name="first_name" placeholder="First Name" required='' >
                                     <input class="order-form-input" name="user_id" type="hidden" value="{{ Auth::id() }}" >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="lastname" placeholder="Last Name" required='' >
+                                    <input class="form-control" name="lastname" placeholder="Last Name" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="email" placeholder="Email Address" required='' >
+                                    <input class="form-control" name="email" placeholder="Email Address" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="street_address" placeholder="Street Address" required='' >
+                                    <input class="form-control" name="street_address" placeholder="Street Address" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="city" placeholder="City" required='' >
+                                    <input class="form-control" name="city" placeholder="City" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="pin_code" placeholder="Pin Code" required='' >
+                                    <input class="form-control" name="pin_code" placeholder="Pin Code" required='' >
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="country" placeholder="Country" required='' > 
+                                    <input class="form-control" name="country" placeholder="Country" required='' > 
                                  </div>
                                  <div class="col-12 mb-2">
-                                    <input class="order-form-input" name="contact" placeholder="Contact">
-                                    <input type="hidden" class="order-form-input" name="product_id" value="{{ $winner['order_no']}}">
-                                    <input type="hidden" class="order-form-input" name="product_name" value="{{ $product_name }}">
-                                    <input type="hidden" class="order-form-input" name="product_points" value="{{ $winner['amount']}}">
+                                    <input class="form-control" name="contact" placeholder="Contact">
+                                    <input type="hidden" class="form-control" name="product_id" value="{{ $winner['order_no']}}">
+                                    <input type="hidden" class="form-control" name="product_name" value="{{ $product_name }}">
+                                    <input type="hidden" class="form-control" name="product_points" value="{{ $winner['amount']}}">
                                  </div>
                               </div>
                               <div class="row mt-3 mx-4">
@@ -309,12 +314,43 @@
                      @csrf
                      <input name="_method" type="hidden" value="DELETE">
                      <button type="submit" onclick="return confirm('Are you sure you want to Delete')" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
-                  </form>
-               </td>
+                  </form><br>
+                  <?php if($data->status == '1' && $check == '0' && !empty($data->photo)){
+                     echo '<a class="btn btn-dark" type="button" class="btn btn-primary" onclick="showorderdetail()">View</a>';
+                  } ?>
+                  </td>
             </tr>
          </tbody>
          @endforeach
       </table>
+      <div class="modal fade" id="showorderdetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel"></h4>
+               </div>
+               <div class="modal-body">
+               <table class="table table-striped">
+                  <thead>
+                    <tr>
+                     <th scope="col">Status</th>
+                     <th scope="col">Description</th>
+                     <th scope="col">Attachment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <td>{{$data->winning_order_status}}</td>
+                    <td>{{$data->subject}}</td>
+                    <td><a target="blank" href="{{ url('upload/'.$data->photo) }}" title="Click to open"><img src = "{{ url('upload/'.$data->photo) }}" width = "200" height = "100"></a></td>
+                    </tr>
+                  </tbody>
+               </table>
+               </div>
+            </div>
+         </div>
+      </div>
       <div class="d-flex justify-content-center">
          {{ $allOrder->links('pagination::bootstrap-4') }}
       </div>
