@@ -267,13 +267,7 @@ class ProductsController extends Controller
             }
         }
         Session::put('success', 'Payment successful');
-        // if(session()->has('success'))
-        // {
-        //     $api = new Api("rzp_test_knzbBWvBK63oOv", "hkSqop01RcAdsy51lwz7I0dd");
-        //     $data = $api->payment->all();
-        //     dd($data);
-        // }
-        return redirect()->back();
+        return redirect('cart');
     }
 
     public function user_profile()

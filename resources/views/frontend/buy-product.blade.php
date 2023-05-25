@@ -43,23 +43,6 @@
 </div>
 @endif
 
-
-<!-- @if (session()->has('success'))
-    <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <strong>
-            {!! session()->get('success') !!}
-            <a class="btn btn-success" href="{{ url('razorpay-payment') }}">Add Points</a><br><br>
-            <label>Refer and Earn coins.</label>
-              <input style="display: none;" type="text" value="{{ url('registers/'.$finalid) }}" id="myInput" readonly="">
-              <button class="btn btn-success" onclick="myFunction()">Copy Link</button>
-              <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=urlencodedtext">Share on Whatsapp</a>
-        </strong>
-    </div>
-@endif -->
-
 <form method='post' action="{{url('order')}}">
   @csrf
   @if(session()->has('message'))
@@ -92,11 +75,11 @@
         <div class="col-12">
           <div class="row mx-4">
           <div class="col-12 mb-2">
-              <label class="order-form-label">Amount</label>
+              <label class="order-form-label">Total Points</label>
               <input class="order-form-input" name="amount" placeholder="" value="{{$check}}" readonly>
             </div>
             <div class="col-12 mb-2">
-              <label class="order-form-label">Name</label>
+              <label class="order-form-label">Your Name</label>
             </div>
             <div class="col-12 col-sm-6">
               <input class="order-form-input" name="first_name" placeholder="First">
@@ -106,27 +89,27 @@
             </div>
           </div>
 
-          <div class="row mt-3 mx-4">
+          <div class="row mt-3 mx-4 d-none">
             <div class="col-12">
               <label class="order-form-label">Type of thing you want to order</label>
             </div>
             <div class="col-12">
-              <input class="order-form-input" name="thing_you_want_to_order" placeholder=" ">
+              <input class="order-form-input" value="yes" name="thing_you_want_to_order" placeholder=" ">
             </div>
           </div>
 
-          <div class="row mt-3 mx-4">
+          <div class="row mt-3 mx-4 d-none">
             <div class="col-12">
               <label class="order-form-label">Another type of thing you want to order</label>
             </div>
             <div class="col-12">
-              <input class="order-form-input" class="thing_you_want_to_order" placeholder=" ">
+              <input class="order-form-input" value="yes" class="thing_you_want_to_order" placeholder=" ">
             </div>
           </div>
 
           <div class="row mt-3 mx-4">
             <div class="col-12">
-              <label class="order-form-label" for="date-picker-example">Date</label>
+              <label class="order-form-label" for="date-picker-example">Date Of Birth</label>
             </div>
             <div class="col-12">
               <input type="date" class="order-form-input datepicker" name="DOB" placeholder="Selected date" type="text"
@@ -148,17 +131,17 @@
               <input class="order-form-input" name="city" placeholder="City">
               <input type="hidden" class="order-form-input" name="amount" value="{{$check}}" placeholder="City">
             </div>
-            <div class="col-12 col-sm-6 mt-2 pl-sm-0">
-              <input class="order-form-input" name="region" placeholder="Region">
+            <div class="col-12 col-sm-6 mt-2 pl-sm-0 d-none">
+              <input class="order-form-input" name="region" value="Indian" placeholder="Region">
             </div>
             <div class="col-12 col-sm-6 mt-2 pr-sm-2">
               <input class="order-form-input" name="pin_code" placeholder="Postal / Zip Code">
             </div>
-            <div class="col-12 col-sm-6 mt-2 pl-sm-0">
-              <input class="order-form-input" name="country" placeholder="Country">
+            <div class="col-12 col-sm-6 mt-2 pl-sm-0 d-none">
+              <input class="order-form-input" name="country" value="India" placeholder="Country">
             </div>
             <div class="col-12 col-sm-6 mt-2 pr-sm-2">
-              <input class="order-form-input" name="contact" placeholder="Contact">
+              <input class="order-form-input" name="contact" placeholder="Phone Number">
             </div>
           </div>
 
@@ -166,7 +149,7 @@
             <div class="col-12">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="validation" id="validation" value="1" required>
-                <label for="validation" class="form-check-label">I know what I need to know</label>
+                <label for="validation" class="form-check-label">I accept all terms and conditions.</label>
               </div>
             </div>
           </div>

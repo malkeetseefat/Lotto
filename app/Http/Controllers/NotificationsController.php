@@ -6,6 +6,8 @@ use App\Models\notifications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\bulksend;
+use App\Models\User;
+use DB;
 
 class NotificationsController extends Controller
 {
@@ -127,17 +129,17 @@ class NotificationsController extends Controller
     }
 
 
-    public function Sendbulkmsg(notifications $notifications)
+    public function Sendbulkmsg(Request $request)
     {
-        $allemails = notifications::get();
         $emaildata = array(
-            'msgcontent' => $notifications->msg
+            'msgcontent' => $request->input('msg')
         );  
-        
-        Mail::to('malkeet.seefat@gmail.com')->send(new bulksend($emaildata));
-        
-        return view('admin.bulksms');
-        //return view('home', compact('main'));    
+        $checkauth = DB::table('users')->get();
+        foreach ($checkauth as $key => $value) {
+            Mail::to($value->email)->send(new bulksend($emaildata));
+        }
+        return view('admin.bulksms');   
     }
+    
 
 }

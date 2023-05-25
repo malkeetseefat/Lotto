@@ -50,7 +50,7 @@ body {
                         {{ Session::forget('success') }}
                         <div class="card card-default">
                             <div class="card-header">
-                                Add Points
+                                Add Points (<span>1-INR = 4 points</span>)
 
                                 <a class="btn btn-primary" href="/cart"> Back To shop </a>
 
